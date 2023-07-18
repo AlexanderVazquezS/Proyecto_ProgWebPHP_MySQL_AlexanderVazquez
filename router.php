@@ -3,18 +3,14 @@
 
 		$formulario = isset($_GET['r'])?$_GET['r']:"";
 
-		if($formulario == "lista_usuarios"){
+		if($formulario == "mi_panel"){
 
-			include("vistas/lista_proveedores.php");	
+			include("vistas/mi_panel.php");	
 
 		}elseif($formulario == "lista_generos"){
 
 			include("vistas/lista_generos.php");	
 		
-		}elseif($formulario == "lista_directores"){
-
-			include("vistas/lista_directores.php");	
-
 		}else{
 
 			echo("<h1>404 Pagina no existe</h1>");
