@@ -15,7 +15,7 @@
 				$puerto = isset($BASEDATOS['puerto'])?$BASEDATOS['puerto']:"3306";
 				$usuario = isset($BASEDATOS['usuario'])?$BASEDATOS['usuario']:"root";
 				$clave = isset($BASEDATOS['clave'])?$BASEDATOS['clave']:"";
-				$db = isset($BASEDATOS['db'])?$BASEDATOS['db']:"curso_2253";
+				$db = isset($BASEDATOS['db'])?$BASEDATOS['db']:"proyecto";
 				$conexion = new PDO("mysql:host=".$host.":".$puerto.";dbname=".$db."",$usuario,$clave);
 				$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -46,7 +46,7 @@
 				$puerto = isset($BASEDATOS['puerto'])?$BASEDATOS['puerto']:"3306";
 				$usuario = isset($BASEDATOS['usuario'])?$BASEDATOS['usuario']:"root";
 				$clave = isset($BASEDATOS['clave'])?$BASEDATOS['clave']:"";
-				$db = isset($BASEDATOS['db'])?$BASEDATOS['db']:"curso_2253";
+				$db = isset($BASEDATOS['db'])?$BASEDATOS['db']:"proyecto";
 				$conexion = new PDO("mysql:host=".$host.":".$puerto.";dbname=".$db."",$usuario,$clave);
 				$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			

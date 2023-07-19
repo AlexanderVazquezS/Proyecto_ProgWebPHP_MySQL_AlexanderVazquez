@@ -62,11 +62,7 @@
 		main {
 			flex: 1 0 auto;
 		}
-		.icono_logo {
-			width: 50px;
-			margin-top: 5px;
-			margin-left: 45%;
-		}
+		
 
 	</style>
 
@@ -74,17 +70,15 @@
 
 <body>
 	<nav>
-		<div class="nav-wrapper  blue lighten-5">
-			<img src="web/img/perro.png" class="icono_logo">
-			<a href="#!" class="brand-logo indigo-text text-darken-4">
-				MiPanel
+		<div class="nav-wrapper  teal lighten-2">
+			<a href="#!" class="brand-logo black-text text-darken-4">
+            Login
 			</a>
 		</div>
 	</nav>
 	<main>
 		<div class="container">
-		<h1>Login</h1>
-
+		        
 		<form method="POST" action="login.php" autocomplete="off">
 			<div class="row">					
 			<?php
@@ -99,7 +93,7 @@
 				}
 			?>
 
-
+                <br><br><br>
 				<div class="input-field col s6 offset-s3">
 					<input id="nombre" type="text" class="validate" name="txtNombre">
 					<label for="nombre">Nombre o Mail</label>
@@ -109,7 +103,7 @@
 					<label for="clave">Clave</label>
 				</div>
 				<div class="col s6 offset-s3">
-					<button class="btn waves-effect waves-light blue lighten-2" type="submit" name="boton" value="ingresar">Ingresar
+					<button class="btn waves-effect waves-light teal lighten-2" type="submit" name="boton" value="ingresar">Ingresar
 						<i class="material-icons right">send</i>			
 					</button>
 				</div>	
@@ -118,11 +112,11 @@
 		</div>
 	</main>
 
-	<footer class="page-footer blue lighten-5">
+	<footer class="page-footer teal lighten-2">
 		<div class="footer-copyright">
-			<div class="container blue-text">
+			<div class="container black-text">
 				© 2014 Copyright Text
-				<a class="blue-text right" href="#!">More Links</a>
+				<a class="black-text right" href="#!">More Links</a>
 			</div>
 		</div>
 	</footer>

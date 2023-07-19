@@ -19,12 +19,7 @@
 		main {
 			flex: 1 0 auto;
 		}
-		.icono_logo {
-			width: 50px;
-			margin-top: 5px;
-			margin-left: 45%;
-		}
-
+		
 	</style>
 
 </head>
@@ -32,9 +27,8 @@
 <body>
 <nav>
 		<div class="nav-wrapper  blue lighten-5">
-			<img src="web/img/perro.png" class="icono_logo">
-			<a href="#!" class="brand-logo indigo-text text-darken-4">
-				Automotora Urucar
+			<a href="#!" class="brand-logo indigo-text text-darken-4 center">
+				Automotora URUCAR
 			</a>
 			<a class='dropdown-trigger btn right light-blue lighten-1' href='#' data-target='dropdown1' style="margin-top:10px;margin-right:15px">
 				<i class="material-icons" style="line-height:34px">person</i>

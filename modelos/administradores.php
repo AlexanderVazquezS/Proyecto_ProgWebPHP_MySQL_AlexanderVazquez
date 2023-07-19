@@ -10,11 +10,15 @@
 
 		protected $clave;
 
+		public $estado;
+
 		public function construnctor($arrayDatos){
 
 			$this->nombre = $arrayDatos['nombre'];
 			$this->mail = $arrayDatos['mail'];
 			$this->clave = $arrayDatos['clave'];
+			$this->estado = $arrayDatos['estado'];
+			
 
 		}
 
@@ -32,6 +36,7 @@
 				$this->id = $registro[0]['id'];
 				$this->nombre= $registro[0]['nombre'];
 				$this->mail = $registro[0]['email'];
+				$this->estado = $registro[0]['estado'];
 				$retorno = true;
 
 			}else{
@@ -53,7 +58,9 @@
 	
 				$this->nombre 	= $lista[0]['nombre'];
 				$this->mail 	= $lista[0]['email'];
-				$this->id 		= $lista[0]['id'];			
+				$this->id 		= $lista[0]['id'];		
+				$this->estado   = $lista[0]['estado'];
+				
 				$retorno = true;
 
 			}else{
@@ -71,14 +78,17 @@
 				En este metodo se encarga de editar los registros
 			*/
 			$sql = "UPDATE administradores SET
-							nombre = :nombre,
-							email = :mail
-						WHERE id = :id;
+							nombre   = :nombre,
+							email	 = :mail,
+							estado   = :estado
+					  WHERE id       = :id;
 					";	
 			$arrayDatos = array(
-				"id" => $this->id,
-				"nombre" => $this->nombre,
-				"mail" => $this->mail
+				"id" 		=> $this->id,
+				"nombre"    => $this->nombre,
+				"mail"      => $this->mail,
+				"estado"    => $this->estado
+
 			);
 	
 			$respuesta = $this->ejecutar($sql, $arrayDatos);
