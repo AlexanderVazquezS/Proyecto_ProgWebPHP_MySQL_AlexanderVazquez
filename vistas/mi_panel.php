@@ -77,7 +77,7 @@
 			<label for="estado">estado</label>
 		</div>
 		<div class="col s6 offset-s3">
-			<button class="btn waves-effect waves-light blue lighten-2" type="submit" name="boton" value="guardar">Guardar
+			<button class="btn waves-effect waves-light teal accent-3" type="submit" name="boton" value="guardar">Guardar
 				<i class="material-icons right">save</i>			
 			</button>
 			<button class="btn waves-effect waves-light lime lighten-3" type="submit" name="boton" value="cancelar">Cancelar

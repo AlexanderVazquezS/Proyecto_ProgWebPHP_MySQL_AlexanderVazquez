@@ -26,11 +26,11 @@
 
 <body>
 <nav>
-		<div class="nav-wrapper  blue lighten-5">
+		<div class="nav-wrapper  teal lighten-2">
 			<a href="#!" class="brand-logo indigo-text text-darken-4 center">
 				Automotora URUCAR
 			</a>
-			<a class='dropdown-trigger btn right light-blue lighten-1' href='#' data-target='dropdown1' style="margin-top:10px;margin-right:15px">
+			<a class='dropdown-trigger btn right teal accent-3' href='#' data-target='dropdown1' style="margin-top:10px;margin-right:15px">
 				<i class="material-icons" style="line-height:34px">person</i>
 			</a>
 			<!-- Dropdown Structure -->
@@ -79,7 +79,7 @@
 		</div>
 	</main>
 
-	<footer class="page-footer blue lighten-5">
+	<footer class="page-footer teal lighten-2">
 		<div class="footer-copyright">
 			<div class="container blue-text">
 				© 2014 Copyright Text
