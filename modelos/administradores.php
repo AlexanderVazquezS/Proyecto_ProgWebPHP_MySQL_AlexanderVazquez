@@ -12,12 +12,15 @@
 
 		public $estado;
 
+		public $tipo_usuario;
+
 		public function construnctor($arrayDatos){
 
-			$this->nombre = $arrayDatos['nombre'];
-			$this->mail = $arrayDatos['mail'];
-			$this->clave = $arrayDatos['clave'];
-			$this->estado = $arrayDatos['estado'];
+			$this->nombre 		= $arrayDatos['nombre'];
+			$this->mail			= $arrayDatos['mail'];
+			$this->clave 		= $arrayDatos['clave'];
+			$this->estado 		= $arrayDatos['estado'];
+			$this->tipo_usuario = $arrayDatos['tipo_usuario'];
 			
 
 		}
