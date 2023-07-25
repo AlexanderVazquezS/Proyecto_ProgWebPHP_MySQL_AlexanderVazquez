@@ -16,16 +16,16 @@
 			min-height: 100vh;
 			flex-direction: column;
 		}
+
 		main {
 			flex: 1 0 auto;
 		}
-		
 	</style>
 
 </head>
 
 <body>
-<nav>
+	<nav>
 		<div class="nav-wrapper  teal lighten-2">
 			<a href="#!" class="brand-logo indigo-text text-darken-4 center">
 				Automotora URUCAR
@@ -34,15 +34,20 @@
 				<i class="material-icons" style="line-height:34px">person</i>
 			</a>
 			<!-- Dropdown Structure -->
-			<ul id='dropdown1' class='dropdown-content' style="width:150px">				
+			<ul id='dropdown1' class='dropdown-content' style="width:150px">
 				<li>
 					<a href="sistema.php?r=mi_panel">
 						<i class="material-icons">settings</i>Configuracion
 					</a>
-				</li>	
+				</li>
+				<li>
+					<a href="sistema.php?r=ingresar_administradores">
+						<i class="material-icons">add</i>Alta
+					</a>
+				</li>
 				<li>
 					<a href="login.php"><i class="material-icons">exit_to_app</i>Salir</a>
-				</li>		
+				</li>
 			</ul>
 		</div>
 	</nav>
@@ -89,6 +94,15 @@
 	</footer>
 	<!--JavaScript at end of body for optimized loading-->
 	<script type="text/javascript" src="web/js/materialize.min.js"></script>
+
+	<!--select-->
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			var elems = document.querySelectorAll('select');
+			var instances = M.FormSelect.init(elems, options);
+		});
+	</script>
+	
 	<script>
 		//edge 	String 	'left' 	Side of screen on which Sidenav appears.
 		document.addEventListener('DOMContentLoaded', function() {

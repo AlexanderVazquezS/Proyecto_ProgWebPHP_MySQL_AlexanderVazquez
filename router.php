@@ -7,10 +7,10 @@
 
 			include("vistas/mi_panel.php");	
 
-		}elseif($formulario == "lista_generos"){
+		}elseif($formulario == "ingresar_administradores"){
 
-			include("vistas/lista_generos.php");	
-		
+			include("vistas/ingresar_administradores.php");	
+
 		}else{
 
 			echo("<h1>404 Pagina no existe</h1>");

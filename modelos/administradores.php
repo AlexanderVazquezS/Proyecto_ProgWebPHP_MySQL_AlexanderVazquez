@@ -19,8 +19,7 @@
 			$this->nombre 		= $arrayDatos['nombre'];
 			$this->mail			= $arrayDatos['mail'];
 			$this->clave 		= $arrayDatos['clave'];
-			$this->estado 		= $arrayDatos['estado'];
-			$this->tipo_usuario = $arrayDatos['tipo_usuario'];
+			$this->tipo_usuario = $arrayDatos['tipoUsuario'];
 			
 
 		}
@@ -59,11 +58,11 @@
 	
 			if(isset($lista[0]['id'])){
 	
-				$this->nombre 	= $lista[0]['nombre'];
-				$this->mail 	= $lista[0]['email'];
-				$this->id 		= $lista[0]['id'];		
-				$this->estado   = $lista[0]['estado'];
-				
+				$this->nombre 		  = $lista[0]['nombre'];
+				$this->mail 		  = $lista[0]['email'];
+				$this->id 			  = $lista[0]['id'];		
+				$this->estado  		  = $lista[0]['estado'];
+								
 				$retorno = true;
 
 			}else{
@@ -76,21 +75,48 @@
 	
 		}
 
+		public function ingresar(){
+			/*
+				En este metodo se encarga de ingresar los regisros
+			*/
+				$sql = "INSERT administradores SET
+						nombre = :nombre,
+						tipo_usuario = :tipoUsuario,
+						email = :mail,
+						clave = :clave,
+						estado = 1;
+						
+				";
+	
+				$arrayDatos = array(
+					"nombre" => $this->nombre,
+					"tipoUsuario" => $this->tipo_usuario,
+					"mail" => $this->mail,
+					"clave" => md5($this->clave)
+				);
+	
+				$respuesta = $this->ejecutar($sql, $arrayDatos);
+	
+			return $respuesta;
+		}
+
 		public function editar(){
 			/*
 				En este metodo se encarga de editar los registros
 			*/
 			$sql = "UPDATE administradores SET
-							nombre   = :nombre,
-							email	 = :mail,
-							estado   = :estado
+							nombre 		 = :nombre,
+							email		 = :mail,
+							estado  	 = :estado,
+							tipo_usuario = :tipoUsuario
 					  WHERE id       = :id;
 					";	
 			$arrayDatos = array(
 				"id" 		=> $this->id,
 				"nombre"    => $this->nombre,
 				"mail"      => $this->mail,
-				"estado"    => $this->estado
+				"estado"    => $this->estado,
+				"tipoUsuario" =>$this->tipo_usuario
 
 			);
 	
