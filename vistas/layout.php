@@ -34,19 +34,15 @@
 				<i class="material-icons" style="line-height:34px">person</i>
 			</a>
 			<!-- Dropdown Structure -->
-			<ul id='dropdown1' class='dropdown-content' style="width:150px">
+			<ul id='dropdown1' class='dropdown-content' style="width:130px">
 				<li>
 					<a href="sistema.php?r=mi_panel">
-						<i class="material-icons">settings</i>Configuracion
+						<i class="material-icons">settings</i>
 					</a>
 				</li>
 				<li>
-					<a href="sistema.php?r=ingresar_administradores">
-						<i class="material-icons">add</i>Alta
+					<a href="login.php"><i class="material-icons">exit_to_app</i>
 					</a>
-				</li>
-				<li>
-					<a href="login.php"><i class="material-icons">exit_to_app</i>Salir</a>
 				</li>
 			</ul>
 		</div>
@@ -57,8 +53,8 @@
 		</a>
 		<ul>
 			<li>
-				<a href="sistema.php?r=lista_proveedores" class="btn-floating red">
-					<i class="material-icons">fitness_center</i>
+				<a href="sistema.php?r=listar_administradores" class="btn-floating red">
+					<i class="material-icons">storage</i>
 				</a>
 			</li>
 			<li>
@@ -86,9 +82,9 @@
 
 	<footer class="page-footer teal lighten-2">
 		<div class="footer-copyright">
-			<div class="container blue-text">
+			<div class="container black-text">
 				© 2014 Copyright Text
-				<a class="blue-text right" href="#!">More Links</a>
+				<a class="black-text right" href="#!">More Links</a>
 			</div>
 		</div>
 	</footer>

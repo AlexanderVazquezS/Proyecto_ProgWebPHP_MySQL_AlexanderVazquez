@@ -1,7 +1,5 @@
 <?php
 
-	//$md5Admin = md5("admin");
-	//print_r("<h1>".$md5Admin."</h1>");
 
 	require_once("modelos/administradores.php");
 

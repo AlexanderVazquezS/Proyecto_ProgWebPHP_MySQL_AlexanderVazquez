@@ -7,6 +7,10 @@
 
 			include("vistas/mi_panel.php");	
 
+		}elseif($formulario == "listar_administradores"){
+
+			include("vistas/listar_administradores.php");	
+
 		}elseif($formulario == "ingresar_administradores"){
 
 			include("vistas/ingresar_administradores.php");	

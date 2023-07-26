@@ -125,6 +125,54 @@
 			return $respuesta;
 	
 		}
+		public function borrar() {
+			
+				//En este metodo se encarga de borrar los registros
+			
+				//la conexion a la base la hago desde el metodo protected ejecutar
+				$sql = "UPDATE administradores SET
+						estado = 0
+						WHERE id = :id;
+					";
+	
+				$arrayDatos = array(
+					"id" => $this->id,
+				);
+	
+				$respuesta = $this->ejecutar($sql, $arrayDatos);
+			
+			return $respuesta;
+		}
+		public function listar($filtro = array())	{
+			/*
+				Este metodo se encarga de retornar una lista de registro de la base de datos
+			*/
+			$sql = "SELECT * FROM administradores
+						WHERE estado = 1
+						OR 	  estado = 2 
+						ORDER BY id
+						LIMIT ".$filtro['inicio'].", ".$filtro['cantidad']."";
+	
+			$lista = $this->traerRegistros($sql);
+	
+			return $lista;
+		}
+	
+		public function totalRegistros(){
+			
+			$sql = "SELECT count(*) as total FROM administradores  WHERE estado = 1 OR estado = 2";
+	
+			$lista = $this->traerRegistros($sql);
+	
+			if (isset($lista[0]['total'])) {
+				$retorno = $lista[0]['total'];
+			} else {
+				$retorno = 0;
+			}
+	
+			return $retorno;
+		}
+		
 		public function cambiarClave($clave, $nuevaClave, $conClave){
 
 			// Confirmamos si las claves son iguales
