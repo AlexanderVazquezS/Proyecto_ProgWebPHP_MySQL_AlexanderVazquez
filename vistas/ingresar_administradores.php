@@ -9,7 +9,7 @@ $boton = isset($_POST['boton']) ? $_POST['boton'] : "";
 if ($boton == "volver") {
 
     //aca lo que hacemos es redireccionar a la pantalla inicial
-    header('Location: sistema.php?r=layout');
+    header('Location: sistema.php?r=listar_administradores');
 } elseif ($boton == "ingresar") {
 
     //en caso de que el boton sea igual a ingresar lo que 

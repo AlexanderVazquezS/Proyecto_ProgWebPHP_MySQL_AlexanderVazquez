@@ -17,8 +17,7 @@ if (
 	&& isset($_POST['txtNombre']) && $_POST['txtNombre'] != ""
 	&& isset($_POST['txtMail']) && $_POST['txtMail'] != ""
 	&& isset($_POST['txtEstado']) && $_POST['txtEstado'] != ""
-	&& isset($_POST['txtTipoUsuario']) && $_POST['txtTipoUsuario'] != ""
-) {
+	&& isset($_POST['txtTipoUsuario']) && $_POST['txtTipoUsuario'] != "") {
 
 	$objAdministrador->nombre 		= $_POST['txtNombre'];
 	$objAdministrador->mail 		= $_POST['txtMail'];
@@ -53,7 +52,7 @@ if ($boton == "clave" && $id != "" && $clave != "" && $nuevaClave != "" && $conf
 
 
 if (isset($_POST['boton']) && $_POST['boton'] == "cancelar") {
-	header("Location: sistema.php");
+	header("Location: sistema.php?r=layout");
 }
 
 
@@ -86,23 +85,19 @@ if (isset($_POST['boton']) && $_POST['boton'] == "cancelar") {
 
 
 		<div class="input-field col s6 offset-s3">
-			<input id="nombre" type="text" class="validate" name="txtNombre" value="<?= $objAdministrador->nombre ?>">
+			<input id="nombre" type="text" class="validate" name="txtNombre" value="<?= $objAdministrador->nombre?>">
 			<label for="nombre">Nombre</label>
 		</div>
 		<div class="input-field col s6 offset-s3">
-			<input id="mail" type="text" class="validate" name="txtMail" value="<?= $objAdministrador->mail ?>">
+			<input id="mail" type="text" class="validate" name="txtMail" value="<?= $objAdministrador->mail?>">
 			<label for="mail">Mail</label>
-		</div>
-		<div class="input-field col s6 offset-s3">
-			<input id="estado" type="text" class="validate" name="txtEstado" value="<?= $objAdministrador->estado ?>">
-			<label for="estado">estado</label>
 		</div>
 		<div class="input-field col s6 offset-s3">
 			<label for="tipoUsuario"></label>
 			<select id="tipoUsuario" name="txtTipoUsuario">
-				<option <?= $objAdministrador->tipo_usuario ?>>Administrador</option>
-				<option <?= $objAdministrador->tipo_usuario ?>>Encargado</option>
-				<option <?= $objAdministrador->tipo_usuario ?>>Vendedor</option>
+				<option <?= $objAdministrador->tipo_usuario?>>Administrador</option>
+				<option <?= $objAdministrador->tipo_usuario?>>Encargado</option>
+				<option <?= $objAdministrador->tipo_usuario?>>Vendedor</option>
 			</select>
 		</div>
 		<div class=" col s6 offset-s3">

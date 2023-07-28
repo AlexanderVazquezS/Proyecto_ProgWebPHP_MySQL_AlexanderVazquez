@@ -30,35 +30,38 @@
 			<a href="#!" class="brand-logo indigo-text text-darken-4 center">
 				Automotora URUCAR
 			</a>
+			<a href="sistema.php?r=listar_vehiculos" class="waves-effect waves-light btn">Nuestra flota</a>
 			<a class='dropdown-trigger btn right teal accent-3' href='#' data-target='dropdown1' style="margin-top:10px;margin-right:15px">
-				<i class="material-icons" style="line-height:34px">person</i>
+				<i class="material-icons" style="line-height:34px" title="Perfil">person</i>
 			</a>
 			<!-- Dropdown Structure -->
-			<ul id='dropdown1' class='dropdown-content' style="width:130px">
+			<ul id='dropdown1' class='dropdown-content'">
 				<li>
-					<a href="sistema.php?r=mi_panel">
-						<i class="material-icons">settings</i>
-					</a>
+					<a href=" sistema.php?r=mi_panel">
+				<i class="material-icons" title="Editar datos personales">settings</i>
+				</a>
 				</li>
 				<li>
-					<a href="login.php"><i class="material-icons">exit_to_app</i>
+					<a href="login.php">
+						<i class="material-icons" title="Salir">exit_to_app</i>
 					</a>
 				</li>
 			</ul>
 		</div>
 	</nav>
+	
 	<div class="fixed-action-btn">
 		<a class="btn-floating btn-large blue">
-			<i class="large material-icons">dashboard</i>
+			<i class="large material-icons" title= "Menu">dashboard</i>
 		</a>
 		<ul>
 			<li>
 				<a href="sistema.php?r=listar_administradores" class="btn-floating red">
-					<i class="material-icons">storage</i>
+					<i class="material-icons" title= "Listado de usuarios">storage</i>
 				</a>
 			</li>
 			<li>
-				<a href="sistema.php?r=lista_generos" class="btn-floating yellow darken-1">
+				<a href="" class="btn-floating yellow darken-1">
 					<i class="material-icons">format_quote</i>
 				</a>
 			</li>
@@ -98,7 +101,7 @@
 			var instances = M.FormSelect.init(elems, options);
 		});
 	</script>
-	
+
 	<script>
 		//edge 	String 	'left' 	Side of screen on which Sidenav appears.
 		document.addEventListener('DOMContentLoaded', function() {
