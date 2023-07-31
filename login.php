@@ -2,7 +2,6 @@
 
 
 	require_once("modelos/administradores.php");
-	
 
 	session_start();
 	unset($_SESSION['usuario']);
@@ -18,6 +17,7 @@
 
 		$objAdministradores = new administradores();
 		$respuesta = $objAdministradores->login($nombre, $clave);
+		
 
 		if($respuesta != true){
 			$mensaje = "Error en las credenciales";
@@ -33,9 +33,7 @@
 
 
 	}
-
-
-
+	
 
 ?>
 

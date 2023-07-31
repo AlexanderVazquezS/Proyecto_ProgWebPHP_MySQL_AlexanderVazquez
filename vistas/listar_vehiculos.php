@@ -101,7 +101,7 @@ $listaVehiculos = $objvehiculo->listar($arrayFiltros);
 
                     ?>
                         <li class="<?= $color ?>">
-                            <a href="sistema.php?r=listar_vehiculos=<?= $i ?>"><?= $i ?></a>
+                            <a href="sistema.php?r=listar_vehiculos&pagina=<?= $i ?>"><?= $i ?></a>
                         </li>
                     <?php
                     }

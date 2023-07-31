@@ -9,6 +9,7 @@
 	}
 
 	include("vistas/layout.php");
-
+	
+	
 
 ?>

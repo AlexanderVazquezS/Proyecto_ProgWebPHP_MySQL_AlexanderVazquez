@@ -8,7 +8,7 @@
 
 		public $color;
 
-		protected $tipo_vehiculo;
+		public $tipo_vehiculo;
 
 		public $marca;
 
@@ -16,22 +16,20 @@
 
         public $cant_pasajeros;
 
-        public $estado;
-        
-       
+		public $matricula;
+
+		public $estado;
+
 		public function construnctor($arrayDatos){
 
-			$this->modelo 		         = $arrayDatos['modelo'];
-			$this->color			     = $arrayDatos['color'];
-			$this->tipo_vehiculo         = $arrayDatos['tipoVehiculo'];
-			$this->marca                 = $arrayDatos['marca'];
-            $this->precio 		         = $arrayDatos['precio'];
-            $this->cant_pasajeros 	     = $arrayDatos['cantPasajeros'];
-            $this->estado 		         = $arrayDatos['clave'];
-          
-           
+			$this->modelo = $arrayDatos['modelo'];
+			$this->color = $arrayDatos['color'];
+			$this->tipo_vehiculo = $arrayDatos['tipo_vehiculo'];
+			$this->marca = $arrayDatos['marca'];
+            $this->precio = $arrayDatos['precio'];
+            $this->cant_pasajeros = $arrayDatos['cant_pasajeros'];
+            $this->matricula = $arrayDatos['matricula'];
 			
-
 		}
 
 		public function cargar($id){
@@ -43,11 +41,16 @@
 	
 			if(isset($lista[0]['id'])){
 	
-				$this->modelo 		  = $lista[0]['nombre'];
-				$this->marca 		  = $lista[0]['marca'];
+				$this->modelo 		  = $lista[0]['modelo'];
+				$this->color 		  = $lista[0]['color'];
 				$this->id 			  = $lista[0]['id'];		
-				$this->estado  		  = $lista[0]['estado'];
-               								
+				$this->tipo_vehiculo  = $lista[0]['tipo_vehiculo'];
+               	$this->marca 		  = $lista[0]['marca'];
+				$this->precio 		  = $lista[0]['precio'];
+				$this->cant_pasajeros = $lista[0]['cant_pasajeros'];
+				$this->matricula	  = $lista[0]['matricula'];
+				$this->estado         = $lista[0]['estado'];
+							
 				$retorno = true;
 
 			}else{
@@ -65,25 +68,26 @@
 				En este metodo se encarga de ingresar los regisros
 			*/
 				$sql = "INSERT vehiculos SET
-						modelo = :modelo,
-                        color  = :color,
-						tipo_vehiculo = :tipoVehiculo,
-						marca = :marca,
-						precio = :precio,
-                        cant_pasajeros = cantPasajeros,                       
-						estado = 1;
+						modelo		   = :modelo,
+                        color 		   = :color,
+						tipo_vehiculo  = :tipo_vehiculo,
+						marca		   = :marca,
+						precio		   = :precio,
+                        cant_pasajeros = :cant_pasajeros,    
+						matricula	   = :matricula,                   
+						estado		   = 1;
 						
 				";
 	
 				$arrayDatos = array(
-					"modelo" => $this->modelo,
-					"color" => $this->color,
-					"tipoVehiculo" => $this->tipo_vehiculo,
-                    "marca" => $this->marca,
-					"precio" => $this->precio,
-					"cantpasajeros" => $this->cant_pasajeros,                    
-                    "esado"=> $this->estado,
-					
+					"modelo"	     => $this->modelo,
+					"color"          => $this->color,
+					"tipo_vehiculo"  => $this->tipo_vehiculo,
+                    "marca"          => $this->marca,
+					"precio"	     => $this->precio,
+					"cant_pasajeros" => $this->cant_pasajeros,  
+					"matricula"      => $this->matricula
+										        
 				);
 	
 				$respuesta = $this->ejecutar($sql, $arrayDatos);
@@ -96,24 +100,28 @@
 				En este metodo se encarga de editar los registros
 			*/
 			$sql = "UPDATE vehiculos SET
-							modelo 		 = :nombre,
-							color		 = :mail,
-							tipo_vehiculo = :tipoVehiculo,
-                            marca        = :marca,
-                            precio       = :precio,
-                            cant_pasajeros= :cantPasajeros,                           
-							estado = :estado
-					  WHERE id       = :id;
+							modelo 			 = :modelo,
+							color			 = :color,
+							tipo_vehiculo	 = :tipo_vehiculo,
+                            marca       	 = :marca,
+                            precio      	 = :precio,
+                            cant_pasajeros	 = :cant_pasajeros,    
+							matricula		 = :matricula,
+							estado			 = :estado														                 
+						WHERE id      		 = :id;
 					";	
+					
 			$arrayDatos = array(
-				"id" 		=> $this->id,
-				"modelo"    => $this->modelo,
-				"tipoVehiculo"      => $this->tipo_vehiculo,
-				"marca"    => $this->marca,
-				"precio" =>$this->precio,
-                "cantPasajeros" => $this->cant_pasajeros,               
-                "estado" => $this-> estado
-
+				"id" 			 => $this->id,
+				"modelo"   		 => $this->modelo,
+				"color"   		 => $this->color,
+				"tipo_vehiculo"  => $this->tipo_vehiculo,
+				"marca"   		 => $this->marca,
+				"precio" 		 => $this->precio,
+                "cant_pasajeros" => $this->cant_pasajeros, 
+				"matricula" 	 => $this->matricula,   
+				"estado"		 => $this->estado	
+							                 
 			);
 	
 			$respuesta = $this->ejecutar($sql, $arrayDatos);

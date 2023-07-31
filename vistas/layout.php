@@ -30,7 +30,7 @@
 			<a href="#!" class="brand-logo indigo-text text-darken-4 center">
 				Automotora URUCAR
 			</a>
-			<a href="sistema.php?r=listar_vehiculos" class="waves-effect waves-light btn">Nuestra flota</a>
+			<a href="sistema.php?r=listar_vehiculos" class="waves-effect waves-light btn">Vehiculos</a>
 			<a class='dropdown-trigger btn right teal accent-3' href='#' data-target='dropdown1' style="margin-top:10px;margin-right:15px">
 				<i class="material-icons" style="line-height:34px" title="Perfil">person</i>
 			</a>
@@ -38,7 +38,7 @@
 			<ul id='dropdown1' class='dropdown-content'">
 				<li>
 					<a href=" sistema.php?r=mi_panel">
-				<i class="material-icons" title="Editar datos personales">settings</i>
+				<i class="material-icons" title="Editar perfil">settings</i>
 				</a>
 				</li>
 				<li>
@@ -57,7 +57,7 @@
 		<ul>
 			<li>
 				<a href="sistema.php?r=listar_administradores" class="btn-floating red">
-					<i class="material-icons" title= "Listado de usuarios">storage</i>
+					<i class="material-icons" title= "Listado de usuarios">people</i>
 				</a>
 			</li>
 			<li>

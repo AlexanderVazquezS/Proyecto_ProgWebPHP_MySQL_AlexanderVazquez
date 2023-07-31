@@ -89,10 +89,10 @@
 				";
 	
 				$arrayDatos = array(
-					"nombre" => $this->nombre,
+					"nombre"	  => $this->nombre,
 					"tipoUsuario" => $this->tipo_usuario,
-					"mail" => $this->mail,
-					"clave" => md5($this->clave)
+					"mail" 		  => $this->mail,
+					"clave"		  => md5($this->clave)
 				);
 	
 				$respuesta = $this->ejecutar($sql, $arrayDatos);
@@ -109,14 +109,14 @@
 							email		 = :mail,
 							estado  	 = :estado,
 							tipo_usuario = :tipoUsuario
-					  WHERE id       = :id;
+					  WHERE id    		 = :id;
 					";	
 			$arrayDatos = array(
-				"id" 		=> $this->id,
-				"nombre"    => $this->nombre,
-				"mail"      => $this->mail,
-				"estado"    => $this->estado,
-				"tipoUsuario" =>$this->tipo_usuario
+				"id" 		  => $this->id,
+				"nombre"  	  => $this->nombre,
+				"mail"  	  => $this->mail,
+				"estado"   	  => $this->estado,
+				"tipoUsuario" => $this->tipo_usuario
 
 			);
 	
@@ -160,7 +160,10 @@
 	
 		public function totalRegistros(){
 			
-			$sql = "SELECT count(*) as total FROM administradores  WHERE estado = 1 OR estado = 2";
+			$sql = "SELECT count(*) as total 
+					FROM administradores  
+					WHERE estado = 1 
+					OR estado = 2";
 	
 			$lista = $this->traerRegistros($sql);
 	

@@ -27,6 +27,18 @@
 
 			include("vistas/listar_vehiculos.php");	
 			
+		}elseif($formulario == "ingresar_vehiculos"){
+
+			include("vistas/ingresar_vehiculos.php");	
+			
+		}elseif($formulario == "borrar_vehiculos"){
+
+			include("vistas/borrar_vehiculos.php");	
+			
+		}elseif($formulario == "editar_vehiculos"){
+
+			include("vistas/editar_vehiculos.php");	
+			
 		}else{
 
 			echo("<h1>404 Pagina no existe</h1>");

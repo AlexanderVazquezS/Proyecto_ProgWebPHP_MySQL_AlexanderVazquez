@@ -20,12 +20,7 @@ if (
 ) {
 
     $id = $_POST['id'];
-    /*
-		$arrayDatos = array(
-			"nombre" => $_POST['nombre'],
-			"descripcion" => $_POST['descripcion']
-		);		
-		*/
+  
     $objAdministrador->cargar($id);
 
     $objAdministrador->nombre       = $_POST['txtNombre'];
@@ -48,7 +43,7 @@ if (isset($_POST['boton']) && $_POST['boton'] == "cancelar") {
 
 
 ?>
-<h1>Editar Usuario N°: <?= $id ?> </h1>
+<h1>Editar Usuario </h1>
 
 <form method="POST" action="sistema.php?r=editar_administradores">
     <div class="row">
