@@ -69,7 +69,7 @@
 	<nav>
 		<div class="nav-wrapper  teal lighten-2">
 			<a href="#!" class="brand-logo black-text text-darken-4">
-            Login
+            Login de usuarios
 			</a>
 		</div>
 	</nav>

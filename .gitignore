@@ -1,2 +1,5 @@
 # Ignora la carpeta node_modules
 configuracion/db.php
+
+#ignora la carpeta archivos 
+web/archivos/

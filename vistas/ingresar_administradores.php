@@ -27,7 +27,7 @@ if ($boton == "volver") {
         && $arrayDatos['clave'] != ""
     ) {
 
-        $objAdministrador->construnctor($arrayDatos);
+        $objAdministrador->constructor($arrayDatos);
         $respuesta = $objAdministrador->ingresar();
 
         if ($respuesta == true) {
@@ -76,9 +76,8 @@ if ($boton == "volver") {
             <label for="nombre">Nombre</label>
         </div>
         <div class="input-field col s6 offset-s3">
-            <label for="tipoUsuario"></label>
             <select id="tipoUsuario" name="txtTipoUsuario">
-                <option value="" disabled selected></option>
+                <option value="" disabled selected>Seleccione una opcion</option>
                 <option value="administrador">Administrador</option>
                 <option value="encargado">Encargado</option>
                 <option value="vendedor">Vendedor</option>

@@ -21,7 +21,7 @@ if (
     && isset($_POST['txtPrecio']) && $_POST['txtPrecio'] != ""
     && isset($_POST['txtCantPasajeros']) && $_POST['txtCantPasajeros'] != ""
     && isset($_POST['txtMatricula']) && $_POST['txtMatricula'] != ""
-    && isset($_POST['txtEstado']) && $_POST['txtEstado'] != ""
+    && isset($_POST['selEstado']) && $_POST['selEstado'] != ""
 ) {
 
     $id = $_POST['id'];
@@ -35,7 +35,7 @@ if (
     $objVehiculo->precio         = $_POST['txtPrecio'];
     $objVehiculo->cant_pasajeros = $_POST['txtCantPasajeros'];
     $objVehiculo->matricula      = $_POST['txtMatricula'];
-    $objVehiculo->estado         = $_POST['txtEstado'];
+    $objVehiculo->estado         = $_POST['selEstado'];
 
     $respuesta                   = $objVehiculo->editar();
 
@@ -90,7 +90,7 @@ if (isset($_POST['boton']) && $_POST['boton'] == "cancelar") {
         <div class="input-field col s6 offset-s3">
             <label for="tipo_vehiculo"></label>
             <select id="tipo_vehiculo" name="txtTipoVehiculo">
-            <option value="" disabled selected></option>
+            <option value="">Elija una opcion</option>
                 <option <?= $objVehiculo->tipo_vehiculo ?>>Citycar</option>
                 <option <?= $objVehiculo->tipo_vehiculo ?>>Sedan</option>
                 <option <?= $objVehiculo->tipo_vehiculo ?>>Deportivo</option>
@@ -117,8 +117,13 @@ if (isset($_POST['boton']) && $_POST['boton'] == "cancelar") {
             <label for="matricula">Matricula"</label>
         </div>
         <div class="input-field col s6 offset-s3">
-            <input id="estado" type="text" class="validate" name="txtEstado" value="<?= $objVehiculo->estado ?>">
-            <label for="estado">Estado:   " 1 = Activo - 2 = Desactivado"</label>
+            <label for="estado"></label>
+            <select id="estado" name="selEstado">
+            <option value="">Elija una opcion</option>
+                <option <?= $objVehiculo->estado ?>>1</option>
+                <option <?= $objVehiculo->estado ?>>2</option>
+            </select>
+            <label>Estado:   " 1 = Activo - 2 = Desactivado"</label>
         </div>
         <div class="col s6 offset-s3">
             <input type="hidden" name="id" value="<?= $objVehiculo->id ?>">

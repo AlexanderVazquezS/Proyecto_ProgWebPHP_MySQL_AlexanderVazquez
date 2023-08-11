@@ -20,7 +20,7 @@
 
 		public $estado;
 
-		public function construnctor($arrayDatos){
+		public function constructor($arrayDatos = array()){
 
 			$this->modelo = $arrayDatos['modelo'];
 			$this->color = $arrayDatos['color'];
@@ -150,11 +150,32 @@
 			/*
 				Este metodo se encarga de retornar una lista de registro de la base de datos
 			*/
-			$sql = "SELECT * FROM vehiculos
+			 $sql = "SELECT 
+						a.id,
+						a.fecha_desde,
+						a.fecha_hasta,
+						u.id,
+						CONCAT(u.apellido,' ',u.apellido) as Nombre_Completo,
+						v.modelo,
+						v.color,
+						v.tipo_vehiculo,
+						v.marca,
+						v.precio,
+						v.cant_pasajeros,
+						v.imagen, 
+						v.estado 
+						FROM alquileres a
+						INNER JOIN usuarios u on u.id = a.id 
+						INNER JOIN vehiculos v on v.id = a.id 
+						WHERE v.estado = 1 or v.estado = 2
+						ORDER BY v.modelo 
+						LIMIT ".$filtro['inicio'].", ".$filtro['cantidad']."";
+
+			/*$sql = "SELECT * FROM vehiculos
 						WHERE estado = 1
 						OR 	  estado = 2 
 						ORDER BY id
-						LIMIT ".$filtro['inicio'].", ".$filtro['cantidad']."";
+						LIMIT ".$filtro['inicio'].", ".$filtro['cantidad']."";*/
 	
 			$lista = $this->traerRegistros($sql);
 	

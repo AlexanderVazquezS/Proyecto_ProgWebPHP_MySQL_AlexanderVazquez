@@ -15,7 +15,7 @@ if (
     isset($_POST['boton']) && $_POST['boton'] == "guardar"
     && isset($_POST['id']) && $_POST['id'] > 0
     && isset($_POST['txtNombre']) && $_POST['txtNombre'] != ""
-    && isset($_POST['txtEstado']) && $_POST['txtEstado'] != ""
+    && isset($_POST['selEstado']) && $_POST['selEstado'] != ""
     && isset($_POST['txtTipoUsuario']) && $_POST['txtTipoUsuario'] != ""
 ) {
 
@@ -25,7 +25,7 @@ if (
 
     $objAdministrador->nombre       = $_POST['txtNombre'];
     $objAdministrador->mail         = $_POST['txtMail'];
-    $objAdministrador->estado       = $_POST['txtEstado'];
+    $objAdministrador->estado       = $_POST['selEstado'];
     $objAdministrador->tipo_usuario = $_POST['txtTipoUsuario'];
     $respuesta                      = $objAdministrador->editar();
 
@@ -76,15 +76,20 @@ if (isset($_POST['boton']) && $_POST['boton'] == "cancelar") {
         <div class="input-field col s6 offset-s3">
             <input id="mail" type="text" class="validate" name="txtMail" value="<?= $objAdministrador->mail ?>">
             <label for="mail">Correo</label>
-        </div>
+        </div>      
         <div class="input-field col s6 offset-s3">
-            <input id="estado" type="text" class="validate" name="txtEstado" value="<?= $objAdministrador->estado ?>">
-            <label for="estado">Estados:   " 1 = Activo - 2 = Desactivado"</label>
+            <label for="estado"></label>
+            <select id="estado" name="selEstado">
+            <option value="">Elija una opcion</option>
+                <option <?= $objAdministrador->estado ?>>1</option>
+                <option <?= $objAdministrador->estado ?>>2</option>
+            </select>
+            <label>Estado:   " 1 = Activo - 2 = Desactivado"</label>
         </div>
         <div class="input-field col s6 offset-s3">
             <label for="tipoUsuario"></label>
             <select id="tipoUsuario" name="txtTipoUsuario">
-            <option value="" disabled selected></option>
+            <option value="">Elija una opcion</option>
                 <option <?= $objAdministrador->tipo_usuario ?>>Administrador</option>
                 <option <?= $objAdministrador->tipo_usuario ?>>Encargado</option>
                 <option <?= $objAdministrador->tipo_usuario ?>>Vendedor</option>

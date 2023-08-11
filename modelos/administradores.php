@@ -14,7 +14,7 @@
 
 		public $tipo_usuario;
 
-		public function construnctor($arrayDatos){
+		public function constructor($arrayDatos = array()){
 
 			$this->nombre 		= $arrayDatos['nombre'];
 			$this->mail			= $arrayDatos['mail'];
@@ -177,6 +177,17 @@
 		}
 		
 		public function cambiarClave($clave, $nuevaClave, $conClave){
+
+			$resultado = preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/', $nuevaClave);
+
+			if($resultado == 0){
+				$retorno = "La clave no tiene el valor esperado <br>
+							La clave tiene que tener un minimo de 8 caracteres.
+							Dentro de los 8 tiene que tener mayusculas, minusculas, numeros 
+							y alguno de los siguentes caracteres especiales @$!%*#?&
+							";
+				return $retorno;
+			}
 
 			// Confirmamos si las claves son iguales
 			if (!($nuevaClave === $conClave)) {

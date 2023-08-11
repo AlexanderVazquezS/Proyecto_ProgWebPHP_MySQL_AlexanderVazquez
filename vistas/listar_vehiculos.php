@@ -4,7 +4,7 @@ require_once("modelos/vehiculos.php");
 
 $objvehiculo = new vehiculos();
 
-$cantidad = isset($_GET['cantidad']) ? $_GET['cantidad'] : 2;
+$cantidad = isset($_GET['cantidad']) ? $_GET['cantidad'] : 5;
 $pagina = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
 
 $totalRegistros = $objvehiculo->totalRegistros();
@@ -29,6 +29,11 @@ $listaVehiculos = $objvehiculo->listar($arrayFiltros);
 <table class="responsive-table">
     <thead>
         <tr>
+            <th>
+                <a href="sistema.php?r=layout" class="btn waves-effect waves-light lime">
+                    <i class="material-icons"></i> Volver
+                </a>
+            </th>
             <th colspan="8">
                 <a href="sistema.php?r=ingresar_vehiculos" class="btn blue lighten-2 right">
                     <i class="material-icons">add</i> Nuevo
@@ -36,12 +41,12 @@ $listaVehiculos = $objvehiculo->listar($arrayFiltros);
             </th>
         </tr>
         <tr>
-            <th>modelo</th>
-            <th>color</th>
-            <th>tipo vehiculo</th>
-            <th>marca</th>
-            <th>precio</th>
-            <th>cantidad pasajeros</th>
+            <th>Modelo</th>
+            <th>Color</th>
+            <th>Tipo vehiculo</th>
+            <th>Marca</th>
+            <th>Precio</th>
+            <th>Pasajeros</th>
         </tr>
     </thead>
 
@@ -52,19 +57,19 @@ $listaVehiculos = $objvehiculo->listar($arrayFiltros);
             <tr>
                 <td><?= $vehiculo['modelo'] ?></td>
                 <td><?= $vehiculo['color'] ?></td>
-                <td ><?= $vehiculo['tipo_vehiculo'] ?></td>
+                <td><?= $vehiculo['tipo_vehiculo'] ?></td>
                 <td><?= $vehiculo['marca'] ?></td>
                 <td><?= $vehiculo['precio'] ?></td>
-                <td><?= $vehiculo['cant_pasajeros'] ?></td>                                  
+                <td><?= $vehiculo['cant_pasajeros'] ?></td>
                 <td>
                     <img src="web/img/creta_gris.png" style="width:100%; height:110px;" alt="">
-                </td>                
+                </td>
                 <td>
-                    
+
                     <a href="sistema.php?r=borrar_vehiculos&id=<?= $vehiculo['id'] ?>" class="btn btn-floating red  right align">
                         <i class="material-icons">delete</i>
                     </a>
-                    
+
                     <a href="sistema.php?r=editar_vehiculos&id=<?= $vehiculo['id'] ?>" class="btn btn-floating blue lighten-2  right align">
                         <i class="material-icons">edit</i>
                     </a>
@@ -74,7 +79,8 @@ $listaVehiculos = $objvehiculo->listar($arrayFiltros);
         <?php  } ?>
 
         <tr>
-            <td colspan="4">
+
+            <td colspan="8">
                 <ul class="pagination center-align">
                     <li class="waves-effect">
                         <a href="sistema.php?r=listar_vehiculos&pagina=1">
@@ -119,6 +125,5 @@ $listaVehiculos = $objvehiculo->listar($arrayFiltros);
                 </ul>
             </td>
         </tr>
-
     </tbody>
 </table>

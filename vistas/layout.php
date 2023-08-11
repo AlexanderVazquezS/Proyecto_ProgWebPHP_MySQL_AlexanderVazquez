@@ -30,20 +30,19 @@
 			<a href="#!" class="brand-logo indigo-text text-darken-4 center">
 				Automotora URUCAR
 			</a>
-			<a href="sistema.php?r=listar_vehiculos" class="waves-effect waves-light btn">Vehiculos</a>
 			<a class='dropdown-trigger btn right teal accent-3' href='#' data-target='dropdown1' style="margin-top:10px;margin-right:15px">
 				<i class="material-icons" style="line-height:34px" title="Perfil">person</i>
 			</a>
 			<!-- Dropdown Structure -->
 			<ul id='dropdown1' class='dropdown-content'">
 				<li>
-					<a href=" sistema.php?r=mi_panel">
-				<i class="material-icons" title="Editar perfil">settings</i>
+					<a href="sistema.php?r=mi_panel">
+				<i class="material-icons" title="Editar perfil">settings</i>Conf
 				</a>
 				</li>
 				<li>
 					<a href="login.php">
-						<i class="material-icons" title="Salir">exit_to_app</i>
+						<i class="material-icons" title="Salir">exit_to_app</i>Salir
 					</a>
 				</li>
 			</ul>
@@ -57,17 +56,17 @@
 		<ul>
 			<li>
 				<a href="sistema.php?r=listar_administradores" class="btn-floating red">
-					<i class="material-icons" title= "Listado de usuarios">people</i>
+					<i class="material-icons" title= "Usuarios">supervisor_account</i>
 				</a>
 			</li>
 			<li>
-				<a href="" class="btn-floating yellow darken-1">
-					<i class="material-icons">format_quote</i>
+				<a href="sistema.php?r=listar_vehiculos" title="Vehiculos" class="btn-floating yellow darken-1">
+					<i class="material-icons">view_list</i>
 				</a>
 			</li>
 			<li>
-				<a href="sistema.php?r=lista_directores" class="btn-floating green">
-					<i class="material-icons">person</i>
+				<a href="sistema.php?r=listar_clientes" class="btn-floating green" title="Clientes">
+					<i class="material-icons">people</i>
 				</a>
 			</li>
 			<li>

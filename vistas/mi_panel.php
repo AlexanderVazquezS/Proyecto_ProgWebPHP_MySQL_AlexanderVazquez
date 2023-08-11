@@ -1,5 +1,9 @@
 <?php
 
+$nuevaClave = trim("aBcD123@");
+$resultado = preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/', $nuevaClave);
+
+
 require_once("modelos/administradores.php");
 
 $mensaje = "";
@@ -16,12 +20,10 @@ if (
 	$boton == "guardar" && $id != ""
 	&& isset($_POST['txtNombre']) && $_POST['txtNombre'] != ""
 	&& isset($_POST['txtMail']) && $_POST['txtMail'] != ""
-	&& isset($_POST['txtEstado']) && $_POST['txtEstado'] != ""
 	&& isset($_POST['txtTipoUsuario']) && $_POST['txtTipoUsuario'] != "") {
 
 	$objAdministrador->nombre 		= $_POST['txtNombre'];
-	$objAdministrador->mail 		= $_POST['txtMail'];
-	$objAdministrador->estado  		= $_POST['txtEstado'];
+	$objAdministrador->mail 		= $_POST['txtMail'];	
 	$objAdministrador->tipo_usuario = $_POST['txtTipoUsuario'];
 
 	$respuesta = $objAdministrador->editar();
@@ -122,13 +124,17 @@ if (isset($_POST['boton']) && $_POST['boton'] == "cancelar") {
 			<div class=" valign-wrapper blue lighten-4 col s6 offset-s3" style="height: 100px; font-size:25px">
 				<div class="center-align col s12">
 					<?= $mensaje ?>
-					<a href="sistema.php?r=mi_panel" class="btn blue lighten-2">Regresar</a>
+					<a href="sistema.php?r=layout" class="btn blue lighten-2">Regresar</a>
 				</div>
 			</div>
 		<?php
 		} elseif (($respuesta == false && $mensaje != "") && $boton == "clave") {
+			$altura = "100px";
+			if (strlen($mensaje) > 70) {
+				$altura = "200px";
+			}
 		?>
-			<div class=" valign-wrapper red lighten-4 col s6 offset-s3" style="height: 100px; font-size:25px">
+			<div class=" valign-wrapper red lighten-4 col s6 offset-s3" style="height: <?=$altura?>; font-size:25px">
 				<div class="center-align col s12">
 					<?= $mensaje ?>
 				</div>
