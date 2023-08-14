@@ -20,15 +20,19 @@
 
 		public $estado;
 
-		public function constructor($arrayDatos = array()){
+		public $imagen;
 
-			$this->modelo = $arrayDatos['modelo'];
-			$this->color = $arrayDatos['color'];
-			$this->tipo_vehiculo = $arrayDatos['tipo_vehiculo'];
-			$this->marca = $arrayDatos['marca'];
-            $this->precio = $arrayDatos['precio'];
+		public function constructor($arrayDatos = array()){
+			
+			$this->id			  = isset($arrayDatos['id'])?$arrayDatos['id']:"";
+			$this->modelo		  = $arrayDatos['modelo'];
+			$this->color 		  = $arrayDatos['color'];
+			$this->tipo_vehiculo  = $arrayDatos['tipo_vehiculo'];
+			$this->marca		  = $arrayDatos['marca'];
+            $this->precio 		  = $arrayDatos['precio'];
             $this->cant_pasajeros = $arrayDatos['cant_pasajeros'];
-            $this->matricula = $arrayDatos['matricula'];
+            $this->matricula	  = $arrayDatos['matricula'];
+			$this->imagen		  = $arrayDatos['imagen'];
 			
 		}
 
@@ -49,6 +53,7 @@
 				$this->precio 		  = $lista[0]['precio'];
 				$this->cant_pasajeros = $lista[0]['cant_pasajeros'];
 				$this->matricula	  = $lista[0]['matricula'];
+				$this->imagen	      = $lista[0]['imagen'];
 				$this->estado         = $lista[0]['estado'];
 							
 				$retorno = true;
@@ -74,7 +79,8 @@
 						marca		   = :marca,
 						precio		   = :precio,
                         cant_pasajeros = :cant_pasajeros,    
-						matricula	   = :matricula,                   
+						matricula	   = :matricula,        
+						imagen		   = :imagen,          
 						estado		   = 1;
 						
 				";
@@ -86,7 +92,8 @@
                     "marca"          => $this->marca,
 					"precio"	     => $this->precio,
 					"cant_pasajeros" => $this->cant_pasajeros,  
-					"matricula"      => $this->matricula
+					"matricula"      => $this->matricula,
+					"imagen"         => $this->imagen
 										        
 				);
 	
@@ -106,10 +113,12 @@
                             marca       	 = :marca,
                             precio      	 = :precio,
                             cant_pasajeros	 = :cant_pasajeros,    
-							matricula		 = :matricula,
-							estado			 = :estado														                 
-						WHERE id      		 = :id;
-					";	
+							matricula		 = :matricula";																				                 
+						
+					if($this->imagen){
+						$sql .= " ,imagen = '$this->imagen' ";
+					}
+					$sql .=	" WHERE id = :id; ";
 					
 			$arrayDatos = array(
 				"id" 			 => $this->id,
@@ -120,10 +129,10 @@
 				"precio" 		 => $this->precio,
                 "cant_pasajeros" => $this->cant_pasajeros, 
 				"matricula" 	 => $this->matricula,   
-				"estado"		 => $this->estado	
+				"id"			 => $this->id					
 							                 
 			);
-	
+			print_r($arrayDatos);
 			$respuesta = $this->ejecutar($sql, $arrayDatos);
 	
 			return $respuesta;
@@ -150,32 +159,11 @@
 			/*
 				Este metodo se encarga de retornar una lista de registro de la base de datos
 			*/
-			 $sql = "SELECT 
-						a.id,
-						a.fecha_desde,
-						a.fecha_hasta,
-						u.id,
-						CONCAT(u.apellido,' ',u.apellido) as Nombre_Completo,
-						v.modelo,
-						v.color,
-						v.tipo_vehiculo,
-						v.marca,
-						v.precio,
-						v.cant_pasajeros,
-						v.imagen, 
-						v.estado 
-						FROM alquileres a
-						INNER JOIN usuarios u on u.id = a.id 
-						INNER JOIN vehiculos v on v.id = a.id 
-						WHERE v.estado = 1 or v.estado = 2
-						ORDER BY v.modelo 
-						LIMIT ".$filtro['inicio'].", ".$filtro['cantidad']."";
-
-			/*$sql = "SELECT * FROM vehiculos
+			$sql = "SELECT * FROM vehiculos
 						WHERE estado = 1
 						OR 	  estado = 2 
 						ORDER BY id
-						LIMIT ".$filtro['inicio'].", ".$filtro['cantidad']."";*/
+						LIMIT ".$filtro['inicio'].", ".$filtro['cantidad']."";
 	
 			$lista = $this->traerRegistros($sql);
 	

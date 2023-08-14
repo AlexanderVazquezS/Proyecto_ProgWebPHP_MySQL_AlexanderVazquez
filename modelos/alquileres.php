@@ -1,4 +1,4 @@
-<?php
+<?php 
 require_once("modelos/generico.php");
 
 class alquileres extends generico{

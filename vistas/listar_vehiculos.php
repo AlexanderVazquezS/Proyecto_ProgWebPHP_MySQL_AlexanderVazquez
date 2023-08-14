@@ -62,7 +62,7 @@ $listaVehiculos = $objvehiculo->listar($arrayFiltros);
                 <td><?= $vehiculo['precio'] ?></td>
                 <td><?= $vehiculo['cant_pasajeros'] ?></td>
                 <td>
-                    <img src="web/img/creta_gris.png" style="width:100%; height:110px;" alt="">
+                    <img src="web/archivos/<?=$vehiculo['imagen']?>" width="100 px">
                 </td>
                 <td>
 

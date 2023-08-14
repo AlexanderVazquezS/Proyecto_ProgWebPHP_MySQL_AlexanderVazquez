@@ -5,37 +5,38 @@ $mensaje = "";
 $respuesta = "";
 
 $boton = isset($_POST['boton']) ? $_POST['boton'] : "";
+$objVehiculos = new vehiculos();
 
 if ($boton == "volver") {
-
     //aca lo que hacemos es redireccionar a la pantalla inicial
     header('Location: sistema.php?r=listar_vehiculos');
 } elseif ($boton == "ingresar") {
 
-
-    print_r($_FILES);
-    $respuesta = copy($_FILES['imgVehiculo']['tmp_name'],"web/archivos/".$_FILES['imgVehiculo']['name']);
-    print_r($respuesta);
-    
     //en caso de que el boton sea igual a ingresar lo que 
     //hacemos es ingresar el registro.
+    print_r($_FILES); 
 
-    $objVehiculos = new vehiculos();
+    //$respuesta = copy($_FILES['fileImg']['tmp_name'],"web/archivos/".$_FILES['fileImg']['name']);
+    //var_dump($respuesta);
+    $img = $objVehiculos->subirImagen($_FILES['fileImg'], 600, 800);
+
     $arrayDatos = array();
 
     $arrayDatos['modelo'] = isset($_POST['txtModelo']) ? $_POST['txtModelo'] : "";
-    $arrayDatos['color'] = isset($_POST['txtColor']) ? $_POST['txtColor'] : "";
-    $arrayDatos['tipo_vehiculo'] = isset($_POST['txtTipoVehiculo']) ? $_POST['txtTipoVehiculo'] : "";
+    $arrayDatos['color'] = isset($_POST['txtColor']) ? $_POST['txtColor'] : "";    
     $arrayDatos['marca'] = isset($_POST['txtMarca']) ? $_POST['txtMarca'] : "";
-    $arrayDatos['precio'] = isset($_POST['txtPrecio']) ? $_POST['txtPrecio'] : "";
-    $arrayDatos['cant_pasajeros'] = isset($_POST['txtCantPasajeros']) ? $_POST['txtCantPasajeros'] : "";
+    $arrayDatos['precio'] = isset($_POST['txtPrecio']) ? $_POST['txtPrecio'] : "";   
     $arrayDatos['matricula'] = isset($_POST['txtMatricula']) ? $_POST['txtMatricula'] : "";
+    
 
     if (
-        $arrayDatos['modelo'] != "" && $arrayDatos['color'] != "" && $arrayDatos['tipo_vehiculo'] != ""
-        && $arrayDatos['marca'] != "" && $arrayDatos['precio'] != "" && $arrayDatos['cant_pasajeros'] != ""
-        && $arrayDatos['matricula'] != ""
+        $arrayDatos['modelo'] != "" && $arrayDatos['color'] != "" && $arrayDatos['marca'] != "" 
+        && $arrayDatos['precio'] != "" && $arrayDatos['matricula'] != ""
     ) {
+
+        $arrayDatos['tipo_vehiculo'] = isset($_POST['txtTipoVehiculo']) ? $_POST['txtTipoVehiculo'] : "";
+        $arrayDatos['cant_pasajeros'] = isset($_POST['txtCantPasajeros']) ? $_POST['txtCantPasajeros'] : "";
+        $arrayDatos['imagen'] = $img?$img:"";
 
         $objVehiculos->constructor($arrayDatos);
         $respuesta = $objVehiculos->ingresar();
@@ -90,7 +91,7 @@ if ($boton == "volver") {
             <label for="color">Color</label>
         </div>
         <div class="input-field col s6 offset-s3">
-            <label for="tip_vehiculo"></label>
+            <label for="tipo_vehiculo"></label>
             <select id="tipoVehiculo" name="txtTipoVehiculo">
                 <option value="" disabled selected></option>
                 <option value="citycar">Citycar</option>
@@ -121,7 +122,7 @@ if ($boton == "volver") {
         <div class="file-field input-field col s6 offset-s3">
             <div class="btn">
                 <span>Archivo</span>
-                <input type="file" name="imgVehiculo">
+                <input type="file" name="fileImg">
             </div>
             <div class="file-path-wrapper">
                 <input class="file-path validate" type="text">
