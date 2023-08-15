@@ -10,6 +10,8 @@ class alquileres extends generico{
     public $id_usuario;
 
     public $id_vehiculo;
+    
+    public $estado;
 
     public function constructor($arrayDatos = array()){
 
@@ -17,6 +19,7 @@ class alquileres extends generico{
         $this->fecha_hasta = $arrayDatos['fecha-hasta'];
         $this->id_usuario  = $arrayDatos['id_usuario'];
         $this->id_vehiculo = $arrayDatos['id_vehiculo'];
+       
     }
     public function cargar($id){
 
@@ -30,7 +33,8 @@ class alquileres extends generico{
             $this->fecha_desde 	  = $lista[0]['fecha_desde'];
             $this->fecha_hasta 	  = $lista[0]['fecha_hasta'];
             $this->id_usuario 	  = $lista[0]['id_usuario'];
-            $this->id_vehiculo 	  = $lista[0]['id_vehiculo'];          		
+            $this->id_vehiculo 	  = $lista[0]['id_vehiculo'];   
+            $this->estado 	      = $lista[0]['estado'];        		
                             
             $retorno = true;
 
@@ -51,15 +55,15 @@ class alquileres extends generico{
                     fecha_desde    = :fecha_desde,
                     fecha_hasta	   = :fecha_hasta,
                     id_usuario 	   = :id_usuario,
-                    id_vehiculo	   = :id_vehiculo,                    											
+                    id_vehiculo	   = :id_vehiculo,                      									
                     estado 		   = 1;
                     
             ";
 
             $arrayDatos = array(
                 "fecha_desde"	     => $this->fecha_desde,
-                "fecha_hasta"       => $this->fecha_hasta,
-                "id_usuario"      => $this->id_usuario,
+                "fecha_hasta"        => $this->fecha_hasta,
+                "id_usuario"         => $this->id_usuario,
                 "id_vehiculo"   	 => $this->id_vehiculo                
             );
 
@@ -89,13 +93,33 @@ class alquileres extends generico{
 		/*
 			Este metodo se encarga de retornar una lista de registro de la base de datos
 		*/
-		$sql = "SELECT * FROM alquileres
-					WHERE estado = 1
-					OR 	  estado = 2 
-					ORDER BY id
-					LIMIT ".$filtro['inicio'].", ".$filtro['cantidad']."";
+        $estado = isset($filtro['estado'])?$filtro['estado']:"1";	
 
-		$lista = $this->traerRegistros($sql);
+		$sql = "SELECT 
+                    a.id,
+                    a.fecha_desde,
+                    a.fecha_hasta,
+                    a.id_usuario,
+                    a.id_vehiculo,
+                    v.modelo,
+                    v.color,
+                    v.tipo_vehiculo,
+                    v.marca,
+                    v.precio,
+                    v.cant_pasajeros,
+                    v.imagen
+                    FROM alquileres a
+                    RIGHT JOIN vehiculos v ON v.id = a.id 
+                    WHERE v.estado = :estado
+                ORDER BY a.fecha_desde, a.fecha_hasta ";
+
+        if(isset($filtro['inicio']) && isset($filtro['cantidad'])){
+            $sql .= " LIMIT ".$filtro['inicio'].", ".$filtro['cantidad']."";
+        }
+        
+        $arraySQL = array("estado" => $estado);
+
+		$lista = $this->traerRegistros($sql, $arraySQL);
 
 		return $lista;
 	}

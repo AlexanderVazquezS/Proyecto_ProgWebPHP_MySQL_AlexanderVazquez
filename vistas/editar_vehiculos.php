@@ -17,7 +17,7 @@ if ($boton == "volver") {
 
     //en caso de que el boton sea igual a ingresar lo que 
     //hacemos es ingresar el registro.
-    print_r($_FILES); 
+    //print_r($_FILES); 
 
     //$respuesta = copy($_FILES['fileImg']['tmp_name'],"web/archivos/".$_FILES['fileImg']['name']);
     //var_dump($respuesta);

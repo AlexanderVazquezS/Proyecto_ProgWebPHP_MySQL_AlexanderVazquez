@@ -132,7 +132,6 @@
 				"id"			 => $this->id					
 							                 
 			);
-			print_r($arrayDatos);
 			$respuesta = $this->ejecutar($sql, $arrayDatos);
 	
 			return $respuesta;

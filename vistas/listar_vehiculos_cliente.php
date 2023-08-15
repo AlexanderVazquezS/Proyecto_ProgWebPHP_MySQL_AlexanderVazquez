@@ -1,125 +1,134 @@
 <?php
 
-require_once("modelos/vehiculos.php");
+	require_once("modelos/alquileres.php");
+	require_once("modelos/vehiculos.php");
 
-$objvehiculo = new vehiculos();
+	$objAlquiler = new alquileres();
+	$objVehiculo = new vehiculos();
 
-$cantidad = isset($_GET['cantidad']) ? $_GET['cantidad'] : 5;
-$pagina = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
+	$cantidad = isset($_GET['cantidad'])?$_GET['cantidad']:5;
+	$pagina = isset($_GET['pagina'])?$_GET['pagina']:1;
 
-$totalRegistros = $objvehiculo->totalRegistros();
+	$totalRegistros = $objAlquiler->totalRegistros();
 
-// Pagina Anterior va a ser igua al maximo entre la pagina actual menos 1 y 1
-$paginaAnterior = max(($pagina - 1), 1);
+	// Pagina Anterior va a ser igua al maximo entre la pagina actual menos 1 y 1
+	$paginaAnterior = max(($pagina - 1), 1);
+	
+	$totalPagina = ceil($totalRegistros/$cantidad);
+	
+	// Pagina siguente va a ser el menor numero entre la pagina actual + 1 y el total de maximo de paginas
+	$paginaSiguente = min( ($pagina + 1) , $totalPagina);
 
-$totalPagina = ceil($totalRegistros / $cantidad);
+	$arrayFiltros = array();
+	$arrayFiltros['inicio'] = ($pagina - 1) * $cantidad;
+	$arrayFiltros['cantidad'] = $cantidad;
 
-// Pagina siguente va a ser el menor numero entre la pagina actual + 1 y el total de maximo de paginas
-$paginaSiguente = min(($pagina + 1), $totalPagina);
+	$listaAlquiler = $objAlquiler->listar($arrayFiltros);
 
-$arrayFiltros = array();
-$arrayFiltros['inicio'] = ($pagina - 1) * $cantidad;
-$arrayFiltros['cantidad'] = $cantidad;
-
-$listaVehiculos = $objvehiculo->listar($arrayFiltros);
-
+	
 ?>
 <h1>Nuestra Flota</h1>
 
-<table class="responsive-table">
-    <thead>        
-        <tr>           
-            <th colspan="8">
-                <a href="sistema_cliente.php?r=pagina_principal_cliente" class="btn waves-effect waves-light lime">
-                    <i class="material-icons"></i> Volver
-                </a>
-            </th>
-        </tr>
-        <tr>
-        <tr>
-            <th>Modelo</th>
-            <th>Color</th>
-            <th>Tipo vehiculo</th>
-            <th>Marca</th>
-            <th>Precio</th>
-            <th>Pasajeros</th>
-        </tr>
-    </thead>
+<table class="striped">
+	<thead>
+		<tr>
+			<th colspan="11">
+				<a href="sistema_cliente.php?r=ingresar_contenidos" class="btn blue lighten-2 right">
+					<i class="material-icons">add</i> Alquilar
+				</a>
+			
+			</th>
+		</tr>
+		<tr>							
+			<th>Modelo</th>				
+			<th>Color</th>		
+			<th>Marca</th>
+			<th>Precio</th>
+			<th>Cant_pasajeros</th>
+            <th>Alquilado desde</th>
+			<th>Alquilado hasta</th>
+			<th style="width:150px"></th>
+		</tr>
+	</thead>
 
-    <tbody>
+	<tbody>
 
-        <?php foreach ($listaVehiculos as $vehiculo) { ?>
+<?php  foreach($listaAlquiler as $alquiler){ ?>
 
-            <tr>
-                <td><?= $vehiculo['modelo'] ?></td>
-                <td><?= $vehiculo['color'] ?></td>
-                <td><?= $vehiculo['tipo_vehiculo'] ?></td>
-                <td><?= $vehiculo['marca'] ?></td>
-                <td><?= $vehiculo['precio'] ?></td>
-                <td><?= $vehiculo['cant_pasajeros'] ?></td>                                  
-                <td>
-                    <img src="web/img/creta_gris.png" style="width:100%; height:110px;" alt="">
-                </td>                
-                <td>
-                    
-                    <a href="sistema.php?r=borrar_vehiculos&id=<?= $vehiculo['id'] ?>" class="btn btn-floating red  right align">
-                        <i class="material-icons">delete</i>
-                    </a>
-                    
-                    <a href="sistema.php?r=editar_vehiculos&id=<?= $vehiculo['id'] ?>" class="btn btn-floating blue lighten-2  right align">
-                        <i class="material-icons">edit</i>
-                    </a>
-                </td>
-            </tr>
+		<tr>			
+			<td ><?=$alquiler['modelo']?></td>
+			<td ><?=$alquiler['color']?></td>			
+			<td ><?=$alquiler['marca']?></td>
+			<td ><?=$alquiler['precio']?></td>
+			<td ><?=$alquiler['cant_pasajeros']?></td>
+            <td ><?=$alquiler['fecha_desde']?></td>
+			<td ><?=$alquiler['fecha_hasta']?></td>
+			<td >
+				<img src="web/archivos/<?=$alquiler['imagen']?>" width="100px"/>
+			</td>
+			<td>
+				<a href="sistema_cliente.php?r=editar_alquiler&id=<?=$alquiler['id']?>" class="btn btn-floating blue lighten-2">
+					<i class="material-icons">edit</i>
+				</a>
+				<a href="sistema_cliente.php?r=borrar_alquiler&id=<?=$alquiler['id']?>" class="btn btn-floating red">
+					<i class="material-icons">delete</i>
+				</a>
+			</td>
+		</tr>
 
-        <?php  } ?>
+<?php  } ?>
+		<tr>
+			<td class="blue lighten-2" colspan="11">
+				<ul class="pagination center-align">
+					<li class="waves-effect">
+						<a href="sistema_cliente.php?r=listar_vehiculos_cliente&pagina=1">
+							<i class="material-icons">fast_rewind</i>
+						</a>
+					</li>
+					<li class="waves-effect">
+						<a href="sistema_cliente.php?r=listar_vehiculos_cliente&pagina=<?=$paginaAnterior?>">
+							<i class="material-icons">chevron_left</i>
+						</a>
+					</li>
+					
+<?php
+					for($i = ($pagina-2); $i <= ($pagina+2); $i++ ){
 
-        <tr>
-            <td colspan="4">
-                <ul class="pagination center-align">
-                    <li class="waves-effect">
-                        <a href="sistema.php?r=listar_vehiculos&pagina=1">
-                            <i class="material-icons">fast_rewind</i>
-                        </a>
-                    </li>
-                    <li class="waves-effect">
-                        <a href="sistema.php?r=listar_vehiculos&pagina=<?= $paginaAnterior ?>">
-                            <i class="material-icons">chevron_left</i>
-                        </a>
-                    </li>
-                    <?php
-                    for ($i = $pagina - 2; $i <= $pagina + 2; $i++) {
-                        // Reviso si $i es menor a 1 o si $i es mayor a total de paginas
-                        if ($i < 1 || $i > $totalPagina) {
-                            //En caso que se cumpla una de las 2 condiciones lo que hacemos es
-                            //omitir el resto del codigo con el comando continue.	
-                            continue;
-                        }
-                        $color = "waves-effect";
-                        if ($i == $pagina) {
-                            $color = "active";
-                        }
+						/*
+							Reviso si $i es menos < 1 o $i es mayor al total de pagina
+						*/
+						if($i < 1 || $i > $totalPagina){
+							/*
+								En caso que se cumpla una de las 2 condicion lo que hacemos es 
+								omitir el resto del codigo con el comando continue,
+							*/
+							continue;
+						}
+						$color = "waves-effect";
+						if($i == $pagina){
+							$color = "active";
+						}
+?>
+					<li class="<?=$color?>">
+						<a href="sistema_cliente.php?r=listar_vehiculos_cliente&pagina=<?=$i?>"><?=$i?></a>
+					</li>
+<?php
+					}
+?>
+					
+					<li class="waves-effect">
+						<a href="sistema_cliente.php?r=listar_vehiculos_cliente&pagina=<?=$paginaSiguente?>">
+							<i class="material-icons">chevron_right</i>
+						</a>
+					</li>
+					<li class="waves-effect">
+						<a href="sistema_cliente.php?r=listar_vehiculos_cliente&pagina=<?=$totalPagina?>">
+							<i class="material-icons">fast_forward</i>
+						</a>
+					</li>
+				</ul>
+			</td>	
+		</tr>
 
-                    ?>
-                        <li class="<?= $color ?>">
-                            <a href="sistema.php?r=listar_vehiculos&pagina=<?= $i ?>"><?= $i ?></a>
-                        </li>
-                    <?php
-                    }
-                    ?>
-                    <li class="waves-effect">
-                        <a href="sistema.php?r=listar_vehiculos&pagina=<?= $paginaSiguente ?>">
-                            <i class="material-icons">chevron_right</i>
-                        </a>
-                    </li>
-                    <li class="waves-effect">
-                        <a href="sistema.php?r=listar_vehiculos&pagina=<?= $totalPagina ?>">
-                            <i class="material-icons">fast_forward</i>
-                        </a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-
-    </tbody>
+	</tbody>
 </table>

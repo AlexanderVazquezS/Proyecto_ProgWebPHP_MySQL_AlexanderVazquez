@@ -27,7 +27,7 @@ if (
 
     $id = $_POST['id'];
   
-    $objAdministrador->cargar($id);
+    $objCliente->cargar($id);
 
     $objCliente->nombre         = $_POST['txtNombre'];
     $objCliente->apellido       = $_POST['txtApellido'];
@@ -36,7 +36,7 @@ if (
     $objCliente->tipo_documento = $_POST['txtTipoDocumento'];
     $objCliente->num_documento  = $_POST['txtNumDocumento'];
     $objCliente->email          = $_POST['txtMail'];
-    $objCliente->estado         = $_POST['txtEstado'];
+    $objCliente->estado         = $_POST['selEstado'];
     $respuesta                  = $objCliente->editar();
 
     if ($respuesta == true) {
@@ -53,7 +53,7 @@ if (isset($_POST['boton']) && $_POST['boton'] == "cancelar") {
 
 
 ?>
-<h1>Editar Usuario </h1>
+<h1>Editar Cliente </h1>
 
 <form method="POST" action="sistema.php?r=editar_cliente">
     <div class="row">
