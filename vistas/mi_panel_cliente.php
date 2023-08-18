@@ -61,7 +61,7 @@ if ($boton == "clave" && $id != "" && $clave != "" && $nuevaClave != "" && $conf
 
 
 if (isset($_POST['boton']) && $_POST['boton'] == "cancelar") {
-	header("Location: sistema_cliente.php?r=layout_cliente");
+	header("Location: sistema_cliente.php");
 }
 
 

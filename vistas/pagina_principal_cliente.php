@@ -11,11 +11,11 @@
 		<div class="col s12 m4">
 			<div class="card">
 				<div class="card-image">
-					<img src="web/img/auto2.png">
+					<img src="web/img/oroch_naranja.jpeg">
 					<span class="card-title"></span>
 				</div>
 				<div class="card-content">
-					<p>Lo que quieras, lo tenemos: mini, económico, compacto, de lujo, ¡Busca y reserva ya!</p>
+					<p><h4>Lo que quieras, lo tenemos: mini, económico, compacto, de lujo, ¡Busca y reserva ya!</h4></p>
 				</div>
 				<div class="card-action">
 					<a href="sistema_cliente.php?r=listar_vehiculos_cliente">Alquiler de vehiculos</a>
@@ -24,3 +24,4 @@
 		</div>
 	</div>
 </div>
+

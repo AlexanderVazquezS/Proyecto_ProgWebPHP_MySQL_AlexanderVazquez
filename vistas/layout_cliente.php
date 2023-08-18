@@ -44,7 +44,7 @@
 			<a href="#!" class="brand-logo">Automotora URUCAR</a>
 			<ul class="right hide-on-med-and-down">
 				<li>
-					<a href="sistema_cliente.php?r=pagina_principal_cliente" class="waves-effect waves-light btn-small">Pagina Principal</a>
+					<a href="sistema_cliente.php?" class="waves-effect waves-light btn-small">Pagina Principal</a>
 				</li>					
 				<!-- Dropdown Trigger -->
 				<li>

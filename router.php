@@ -59,9 +59,21 @@
 
 			include("vistas/borrar_cliente.php");	
 			
-		}elseif($formulario == "pagina_principal_cliente"){
+		}elseif($formulario == ""){
 
 			include("vistas/pagina_principal_cliente.php");	
+			
+		}elseif($formulario == "ingresar_alquiler"){
+
+			include("vistas/ingresar_alquiler.php");	
+			
+		}elseif($formulario == "editar_alquiler"){
+
+			include("vistas/editar_alquiler.php");	
+			
+		}elseif($formulario == "borrar_alquiler"){
+
+			include("vistas/borrar_alquiler.php");	
 			
 		}else{
 

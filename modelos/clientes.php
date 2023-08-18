@@ -96,6 +96,7 @@
 			return $retorno;
 	
 		}
+		
 		public function ingresar(){
 			/*
 				En este metodo se encarga de ingresar los regisros
@@ -193,6 +194,21 @@
 			return $respuesta;
 	
 		}
+		public function listaCorta(){
+			/*
+				Este metodo se encarga de retornar una lista de registro de la base de datos
+			*/
+			$estado = "1";	
+	
+			$sql = "SELECT id, CONCAT(apellido, ' ', nombre) as nombreCompleto FROM usuarios
+						WHERE estado = :estado 
+					";
+			
+			$arraySQL = array("estado" => $estado);
+			$lista = $this->traerRegistros($sql, $arraySQL);
+			return $lista;
+	
+		}
 		public function totalRegistros(){
 			
 			$sql = "SELECT count(*) as total 
@@ -209,6 +225,21 @@
 			}
 	
 			return $retorno;
+		}		
+		public function mailCliente(){
+			/*
+				Este metodo se encarga de retornar una lista de registro de la base de datos
+			*/
+			$estado = "1";	
+			
+			$sql = "SELECT id,email FROM usuarios
+						WHERE estado = :estado 
+					ORDER BY email";
+			
+			$arraySQL = array("estado" => $estado);
+			$lista = $this->traerRegistros($sql, $arraySQL);
+			return $lista;
+	
 		}
 		public function cambiarClave($clave, $nuevaClave, $conClave){
 

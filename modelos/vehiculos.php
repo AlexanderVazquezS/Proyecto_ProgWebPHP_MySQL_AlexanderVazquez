@@ -128,8 +128,8 @@
 				"marca"   		 => $this->marca,
 				"precio" 		 => $this->precio,
                 "cant_pasajeros" => $this->cant_pasajeros, 
-				"matricula" 	 => $this->matricula,   
-				"id"			 => $this->id					
+				"matricula" 	 => $this->matricula   
+									
 							                 
 			);
 			$respuesta = $this->ejecutar($sql, $arrayDatos);
@@ -167,6 +167,21 @@
 			$lista = $this->traerRegistros($sql);
 	
 			return $lista;
+		}
+		public function listaCorta(){
+			/*
+				Este metodo se encarga de retornar una lista de registro de la base de datos
+			*/
+			$estado = "1";	
+	
+			$sql = "SELECT id, CONCAT(marca, ' ', modelo) as marcaModelo FROM vehiculos
+						WHERE estado = :estado 
+						ORDER BY marcaModelo";
+			
+			$arraySQL = array("estado" => $estado);
+			$lista = $this->traerRegistros($sql, $arraySQL);
+			return $lista;
+	
 		}
 	
 		public function totalRegistros(){
