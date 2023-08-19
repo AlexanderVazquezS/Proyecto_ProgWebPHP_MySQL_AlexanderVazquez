@@ -26,17 +26,22 @@
 
 <body>
 	<nav>
-		<div class="nav-wrapper  teal lighten-2">
+		<div class="nav-wrapper  light-blue lighten-3">
 			<a href="#!" class="brand-logo indigo-text text-darken-4 center">
 				Automotora URUCAR
 			</a>
-			<a class='dropdown-trigger btn right teal accent-3' href='#' data-target='dropdown1' style="margin-top:10px;margin-right:15px">
+			<a class='dropdown-trigger btn right light-blue darken-4' href='#' data-target='dropdown1' style="margin-top:15px; margin-right:15px">
 				<i class="material-icons" style="line-height:34px" title="Perfil">person</i>
 			</a>
-			<!-- Dropdown Structure -->
-			<ul id='dropdown1' class='dropdown-content'">
+			<ul class="right hide-on-med-and-down">
 				<li>
-					<a href="sistema.php?r=mi_panel">
+					<a href="sistema.php?r=listar_alquileresVehiculos_adm" class="btn tooltipped  light-blue darken-4" data-position="bottom" data-tooltip="<h6>Administrar reservas</h6>"><h6>reservas !</h6></a>
+				</li>
+			</ul>
+			<!-- Dropdown Structure -->
+			<ul id='dropdown1' class='dropdown-content'">			
+				<li>
+					<a href=" sistema.php?r=mi_panel">
 				<i class="material-icons" title="Editar perfil">settings</i>Conf
 				</a>
 				</li>
@@ -48,30 +53,30 @@
 			</ul>
 		</div>
 	</nav>
-	
 	<div class="fixed-action-btn">
 		<a class="btn-floating btn-large blue">
-			<i class="large material-icons" title= "Menu">dashboard</i>
+			<i class="large material-icons" title="Menu">dashboard</i>
 		</a>
 		<ul>
-			<li>
-				<a href="sistema.php?r=listar_administradores" class="btn-floating red">
-					<i class="material-icons" title= "Usuarios">supervisor_account</i>
-				</a>
-			</li>
-			<li>
-				<a href="sistema.php?r=listar_vehiculos" title="Vehiculos" class="btn-floating yellow darken-1">
-					<i class="material-icons">view_list</i>
-				</a>
-			</li>
+<?php
+			if (isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] != "vendedor") {
+?>
+				<li>
+					<a href="sistema.php?r=listar_administradores" class="btn-floating red">
+						<i class="material-icons" title="Usuarios">supervisor_account</i>
+					</a>
+				</li>
+				<li>
+					<a href="sistema.php?r=listar_vehiculos" title="Vehiculos" class="btn-floating yellow darken-1">
+						<i class="material-icons">view_list</i>
+					</a>
+				</li>
+<?php
+			}
+?>
 			<li>
 				<a href="sistema.php?r=listar_clientes" class="btn-floating green" title="Clientes">
 					<i class="material-icons">people</i>
-				</a>
-			</li>
-			<li>
-				<a class="btn-floating blue">
-					<i class="material-icons">attach_file</i>
 				</a>
 			</li>
 		</ul>
@@ -82,11 +87,11 @@
 		</div>
 	</main>
 
-	<footer class="page-footer teal lighten-2">
+	<footer class="page-footer light-blue lighten-3">
 		<div class="footer-copyright">
 			<div class="container black-text">
-				© 2014 Copyright Text
-				<a class="black-text right" href="#!">More Links</a>
+				© 2023 Copyright Text
+				<a class="black-text right" href="#!">by Alexander Vazquez</a>
 			</div>
 		</div>
 	</footer>
@@ -118,6 +123,11 @@
 				hoverEnabled: false
 			});
 
+		});
+
+		document.addEventListener('DOMContentLoaded', function() {
+			var elems = document.querySelectorAll('.tooltipped');
+			var instances = M.Tooltip.init(elems, options);
 		});
 	</script>
 </body>

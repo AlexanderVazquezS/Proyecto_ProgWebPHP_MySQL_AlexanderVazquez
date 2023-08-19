@@ -75,6 +75,22 @@
 
 			include("vistas/borrar_alquiler.php");	
 			
+		}elseif($formulario == "listar_alquileresVehiculos_adm"){
+
+			include("vistas/listar_alquileresVehiculos_adm.php");	
+			
+		}elseif($formulario == "ingresar_alquiler_adm"){
+
+			include("vistas/ingresar_alquiler_adm.php");	
+			
+		}elseif($formulario == "editar_alquiler_adm"){
+
+			include("vistas/editar_alquiler_adm.php");	
+			
+		}elseif($formulario == "borrar_alquiler_adm"){
+
+			include("vistas/borrar_alquiler_adm.php");	
+			
 		}else{
 
 			echo("<h1>404 Pagina no existe</h1>");

@@ -96,8 +96,7 @@
 			return $retorno;
 	
 		}
-		
-		public function ingresar(){
+		public function ingresar(){			
 			/*
 				En este metodo se encarga de ingresar los regisros
 			*/
@@ -128,7 +127,8 @@
 				$respuesta = $this->ejecutar($sql, $arrayDatos);
 	
 			return $respuesta;
-		}
+		
+		}	
 		public function borrar() {
 			
 			//En este metodo se encarga de borrar los registros

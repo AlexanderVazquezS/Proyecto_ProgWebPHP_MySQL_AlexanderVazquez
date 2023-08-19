@@ -19,7 +19,7 @@
 			$this->nombre 		= $arrayDatos['nombre'];
 			$this->mail			= $arrayDatos['mail'];
 			$this->clave 		= $arrayDatos['clave'];
-			$this->tipo_usuario = $arrayDatos['tipoUsuario'];
+			$this->tipo_usuario = $arrayDatos['tipo_usuario'];
 			
 
 		}
@@ -35,10 +35,11 @@
 
 			if(isset($registro[0]['id'])){
 
-				$this->id = $registro[0]['id'];
-				$this->nombre= $registro[0]['nombre'];
-				$this->mail = $registro[0]['email'];
-				$this->estado = $registro[0]['estado'];
+				$this->id 			= $registro[0]['id'];
+				$this->nombre		= $registro[0]['nombre'];
+				$this->mail 		= $registro[0]['email'];
+				$this->estado		= $registro[0]['estado'];
+				$this->tipo_usuario = $registro[0]['tipo_usuario'];
 				$retorno = true;
 
 			}else{
@@ -81,7 +82,7 @@
 			*/
 				$sql = "INSERT administradores SET
 						nombre = :nombre,
-						tipo_usuario = :tipoUsuario,
+						tipo_usuario = :tipo_usuario,
 						email = :mail,
 						clave = :clave,
 						estado = 1;
@@ -90,7 +91,7 @@
 	
 				$arrayDatos = array(
 					"nombre"	  => $this->nombre,
-					"tipoUsuario" => $this->tipo_usuario,
+					"tipo_usuario" => $this->tipo_usuario,
 					"mail" 		  => $this->mail,
 					"clave"		  => md5($this->clave)
 				);
@@ -108,7 +109,7 @@
 							nombre 		 = :nombre,
 							email		 = :mail,
 							estado  	 = :estado,
-							tipo_usuario = :tipoUsuario
+							tipo_usuario = :tipo_usuario
 					  WHERE id    		 = :id;
 					";	
 			$arrayDatos = array(
@@ -116,7 +117,7 @@
 				"nombre"  	  => $this->nombre,
 				"mail"  	  => $this->mail,
 				"estado"   	  => $this->estado,
-				"tipoUsuario" => $this->tipo_usuario
+				"tipo_usuario" => $this->tipo_usuario
 
 			);
 	

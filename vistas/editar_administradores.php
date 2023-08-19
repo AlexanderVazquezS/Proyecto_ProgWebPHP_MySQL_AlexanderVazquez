@@ -87,8 +87,8 @@ if (isset($_POST['boton']) && $_POST['boton'] == "cancelar") {
             <label>Estado:   " 1 = Activo - 2 = Desactivado"</label>
         </div>
         <div class="input-field col s6 offset-s3">
-            <label for="tipoUsuario"></label>
-            <select id="tipoUsuario" name="txtTipoUsuario">
+            <label for="tipo_usuario"></label>
+            <select id="tipo_usuario" name="txtTipoUsuario">
             <option value="">Elija una opcion</option>
                 <option <?= $objAdministrador->tipo_usuario ?>>Administrador</option>
                 <option <?= $objAdministrador->tipo_usuario ?>>Encargado</option>

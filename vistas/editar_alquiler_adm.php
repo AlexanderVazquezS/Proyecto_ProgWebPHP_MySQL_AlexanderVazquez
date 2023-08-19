@@ -15,7 +15,7 @@ $objAlquiler->cargar($id);
 
 if ($boton == "volver") {
     //aca lo que hacemos es redireccionar a la pantalla inicial
-    header('Location: sistema_cliente.php?r=listar_vehiculos_cliente');
+    header('Location: sistema.php?r=listar_alquileresVehiculos_adm');
 } elseif ($boton == "editar") {
 
     //en caso de que el boton sea igual a ingresar lo que 
@@ -54,7 +54,7 @@ if ($boton == "volver") {
 
 <h1>Editar de Alquiler</h1>
 
-<form method="POST" action="sistema_cliente.php?r=editar_alquiler">
+<form method="POST" action="sistema.php?r=editar_alquiler_adm">
     <div class="row">
 
         <?php
@@ -65,7 +65,7 @@ if ($boton == "volver") {
                 <div class="center-align col s12">
                     <?= $mensaje ?>
                 </div>
-                <a href="sistema_cliente.php" class="btn blue lighten-2">Regresar</a>
+                <a href="sistema.php?r=listar_alquileresVehiculos_adm" class="btn blue lighten-2">Regresar</a>
             </div>
         <?php
         } elseif ($respuesta == false && $mensaje != "") {

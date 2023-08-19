@@ -29,8 +29,8 @@ $listaVehiculos = $objvehiculo->listar($arrayFiltros);
 <table class="responsive-table">
     <thead>
         <tr>
-            <th>
-                <a href="sistema.php?r=layout" class="btn waves-effect waves-light lime">
+            <th colspan="7">
+                <a href="sistema.php?r=layout" class="btn waves-effect waves-light lime right">
                     <i class="material-icons"></i> Volver
                 </a>
             </th>

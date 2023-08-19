@@ -18,12 +18,12 @@ if ($boton == "volver") {
     $arrayDatos = array();
 
     $arrayDatos['nombre'] = isset($_POST['txtNombre'])? $_POST['txtNombre'] : "";
-    $arrayDatos['tipoUsuario'] = isset($_POST['txtTipoUsuario'])? $_POST['txtTipoUsuario'] : "";
+    $arrayDatos['tipo_usuario'] = isset($_POST['txtTipoUsuario'])? $_POST['txtTipoUsuario'] : "";
     $arrayDatos['mail'] = isset($_POST['txtMail'])? $_POST['txtMail'] : "";
     $arrayDatos['clave'] = isset($_POST['txtClave'])? $_POST['txtClave'] : "";
 
     if (
-        $arrayDatos['nombre'] != "" && $arrayDatos['tipoUsuario'] != "" && $arrayDatos['mail'] != ""
+        $arrayDatos['nombre'] != "" && $arrayDatos['tipo_usuario'] != "" && $arrayDatos['mail'] != ""
         && $arrayDatos['clave'] != ""
     ) {
 
@@ -76,7 +76,7 @@ if ($boton == "volver") {
             <label for="nombre">Nombre</label>
         </div>
         <div class="input-field col s6 offset-s3">
-            <select id="tipoUsuario" name="txtTipoUsuario">
+            <select id="tipo_usuario" name="txtTipoUsuario">
                 <option value="" disabled selected>Seleccione una opcion</option>
                 <option value="administrador">Administrador</option>
                 <option value="encargado">Encargado</option>

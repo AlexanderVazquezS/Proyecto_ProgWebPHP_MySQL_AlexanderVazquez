@@ -32,6 +32,7 @@
             $this->precio 		  = $arrayDatos['precio'];
             $this->cant_pasajeros = $arrayDatos['cant_pasajeros'];
             $this->matricula	  = $arrayDatos['matricula'];
+			$this->estado	      = $arrayDatos['estado'];
 			$this->imagen		  = $arrayDatos['imagen'];
 			
 		}
@@ -112,6 +113,7 @@
 							tipo_vehiculo	 = :tipo_vehiculo,
                             marca       	 = :marca,
                             precio      	 = :precio,
+							estado			 = :estado,
                             cant_pasajeros	 = :cant_pasajeros,    
 							matricula		 = :matricula";																				                 
 						
@@ -127,11 +129,13 @@
 				"tipo_vehiculo"  => $this->tipo_vehiculo,
 				"marca"   		 => $this->marca,
 				"precio" 		 => $this->precio,
+				"estado"		 => $this->estado,
                 "cant_pasajeros" => $this->cant_pasajeros, 
 				"matricula" 	 => $this->matricula   
 									
 							                 
 			);
+			
 			$respuesta = $this->ejecutar($sql, $arrayDatos);
 	
 			return $respuesta;

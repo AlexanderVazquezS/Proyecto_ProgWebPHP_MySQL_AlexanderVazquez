@@ -81,15 +81,14 @@ class alquileres extends generico{
         //En este metodo se encarga de borrar los registros
     
         //la conexion a la base la hago desde el metodo protected ejecutar
-        $sql = "UPDATE alquileres SET
-                estado = 0
+        $sql = "DELETE FROM alquileres 
                 WHERE id = :id;
             ";
 
         $arrayDatos = array(
             "id" => $this->id,
         );
-print_r($arrayDatos);
+
         $respuesta = $this->ejecutar($sql, $arrayDatos);
     
         return $respuesta;
@@ -144,10 +143,10 @@ print_r($arrayDatos);
             "fecha_desde"     => $this->fecha_desde,
             "fecha_hasta"  	  => $this->fecha_hasta,
             "id_usuario" 	  => $this->id_usuario,
-            "id_vehiculo"  	  => $this->id_vehiculo  
+            "id_vehiculo"  	  => $this->id_vehiculo 
                 
         );
-        print_r($arrayDatos);
+     
         $respuesta = $this->ejecutar($sql, $arrayDatos);
 
         return $respuesta;

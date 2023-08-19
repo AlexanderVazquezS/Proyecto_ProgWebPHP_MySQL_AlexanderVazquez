@@ -15,7 +15,7 @@ $paginaAnterior = max(($pagina - 1), 1);
 $totalPagina = ceil($totalRegistros / $cantidad);
 
 // Pagina siguente va a ser el menor numero entre la pagina actual + 1 y el total de maximo de paginas
-$paginaSiguente = min( ($pagina + 1) , $totalPagina);
+$paginaSiguente = min(($pagina + 1), $totalPagina);
 
 $arrayFiltros = array();
 $arrayFiltros['inicio'] = ($pagina - 1) * $cantidad;
@@ -29,6 +29,11 @@ $listaAdministradores = $objAdministrador->listar($arrayFiltros);
 <table class="responsive-table">
 	<thead>
 		<tr>
+			<th colspan="3">
+				<a href="sistema.php?r=layout" class="btn waves-effect waves-light lime right">
+					<i class="material-icons"></i> Volver
+				</a>
+			</th>
 			<th colspan="4">
 				<a href="sistema.php?r=ingresar_administradores" class="btn blue lighten-2 right">
 					<i class="material-icons">add</i> Nuevo
@@ -67,42 +72,42 @@ $listaAdministradores = $objAdministrador->listar($arrayFiltros);
 			<td colspan="4">
 				<ul class="pagination center-align">
 					<li class="waves-effect">
-                        <a href="sistema.php?r=listar_administradores&pagina=1">
-                            <i class="material-icons" title="Pagina inicial">fast_rewind</i>
-                        </a>
-                    </li>
-					<li class="waves-effect">
-						<a href="sistema.php?r=listar_administradores&pagina=<?= $paginaAnterior ?>">
-							<i class="material-icons"  title="Pagina anterior">chevron_left</i>
+						<a href="sistema.php?r=listar_administradores&pagina=1">
+							<i class="material-icons" title="Pagina inicial">fast_rewind</i>
 						</a>
 					</li>
-<?php
-					for($i = $pagina - 2; $i <=$pagina + 2; $i++){
+					<li class="waves-effect">
+						<a href="sistema.php?r=listar_administradores&pagina=<?= $paginaAnterior ?>">
+							<i class="material-icons" title="Pagina anterior">chevron_left</i>
+						</a>
+					</li>
+					<?php
+					for ($i = $pagina - 2; $i <= $pagina + 2; $i++) {
 						// Reviso si $i es menor a 1 o si $i es mayor a total de paginas
-						if($i < 1 || $i > $totalPagina){
-						//En caso que se cumpla una de las 2 condiciones lo que hacemos es
-						//omitir el resto del codigo con el comando continue.	
+						if ($i < 1 || $i > $totalPagina) {
+							//En caso que se cumpla una de las 2 condiciones lo que hacemos es
+							//omitir el resto del codigo con el comando continue.	
 							continue;
 						}
 						$color = "waves-effect";
-						if($i == $pagina){
+						if ($i == $pagina) {
 							$color = "active";
 						}
 
-?>
-					<li class="<?=$color?>">
-						<a href="sistema.php?r=listar_administradores&pagina=<?=$i?>"><?=$i?></a>
-					</li>
-<?php						
+					?>
+						<li class="<?= $color ?>">
+							<a href="sistema.php?r=listar_administradores&pagina=<?= $i ?>"><?= $i ?></a>
+						</li>
+					<?php
 					}
-?>										
+					?>
 					<li class="waves-effect">
 						<a href="sistema.php?r=listar_administradores&pagina=<?= $paginaSiguente ?>">
 							<i class="material-icons" title="Pagina siguiente">chevron_right</i>
 						</a>
 					</li>
 					<li class="waves-effect">
-						<a href="sistema.php?r=listar_administradores&pagina=<?= $totalPagina?>">
+						<a href="sistema.php?r=listar_administradores&pagina=<?= $totalPagina ?>">
 							<i class="material-icons" title="Ultima pagina">fast_forward</i>
 						</a>
 					</li>

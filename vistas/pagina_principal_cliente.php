@@ -1,6 +1,9 @@
+
 <head>
 	<title>Principal</title>
 </head>
+
+	
 
 <div class="row">
 	<div class="col s12 m12">
@@ -18,10 +21,9 @@
 					<p><h4>Lo que quieras, lo tenemos: mini, económico, compacto, de lujo, ¡Busca y reserva ya!</h4></p>
 				</div>
 				<div class="card-action">
-					<a href="sistema_cliente.php?r=listar_vehiculos_cliente">Alquiler de vehiculos</a>
+					<a href="sistema_cliente.php?r=listar_vehiculos_cliente"><h6>Alquiler de vehiculos</h6></a>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-

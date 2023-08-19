@@ -81,7 +81,7 @@
 			// Y valido si la ruta del archivo es vacia
 			if(!isset($archivo['tmp_name']) || $archivo['tmp_name'] == ""){
 				// En caso que no exista o sea vacio el archivo temporal retorno un false
-				print_r("Caso 1");
+				
 				return false;
 			}
 
@@ -103,7 +103,7 @@
 					$tipo = "png";
 					break;
 				default:
-					print_r("Caso 2");
+					
 					return false;
 					break;
 			}
@@ -117,7 +117,7 @@
 			// Valido si puedo copiar el archivo a mi ruta temporal del proyecto
 			if(!$respuesta){
 				// En caso de dar error en copiar devuelvo un false 
-				print_r("Caso 3");
+				
 				return false;
 			}
 

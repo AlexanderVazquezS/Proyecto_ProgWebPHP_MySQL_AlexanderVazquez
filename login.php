@@ -24,11 +24,12 @@
 
 		}else{
 			session_start();
-			$_SESSION['usuario'] = $objAdministradores->nombre;
-			$_SESSION['mail'] 	= $objAdministradores->mail;
-			$_SESSION['id'] 	= $objAdministradores->id;
+			$_SESSION['usuario']	  = $objAdministradores->nombre;
+			$_SESSION['mail'] 		  = $objAdministradores->mail;
+			$_SESSION['id'] 		  = $objAdministradores->id;
+			$_SESSION['tipo_usuario'] = $objAdministradores->tipo_usuario;
 
-			header("location: sistema.php");
+			header("location: sistema.php?r=layout");
 		}
 
 

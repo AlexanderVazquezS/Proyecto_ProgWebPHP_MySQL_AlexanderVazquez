@@ -29,6 +29,7 @@ if ($boton == "volver") {
     $arrayDatos['color'] = isset($_POST['txtColor']) ? $_POST['txtColor'] : "";    
     $arrayDatos['marca'] = isset($_POST['txtMarca']) ? $_POST['txtMarca'] : "";
     $arrayDatos['precio'] = isset($_POST['txtPrecio']) ? $_POST['txtPrecio'] : "";   
+    $arrayDatos['estado'] = isset($_POST['selEstado']) ? $_POST['selEstado'] : ""; 
     $arrayDatos['matricula'] = isset($_POST['txtMatricula']) ? $_POST['txtMatricula'] : "";
     $arrayDatos['id'] = isset($_POST['id']) ? $_POST['id'] : "";
     
@@ -38,7 +39,7 @@ if ($boton == "volver") {
         && $arrayDatos['precio'] != "" && $arrayDatos['matricula'] != ""
     ) {
 
-        $arrayDatos['tipo_vehiculo'] = isset($_POST['txtTipoVehiculo']) ? $_POST['txtTipoVehiculo'] : "";
+        $arrayDatos['tipo_vehiculo'] = isset($_POST['selTipoVehiculo']) ? $_POST['selTipoVehiculo'] : "";
         $arrayDatos['cant_pasajeros'] = isset($_POST['txtCantPasajeros']) ? $_POST['txtCantPasajeros'] : "";       
         $arrayDatos['imagen'] = $img?$img:"";
 
@@ -72,7 +73,7 @@ if ($boton == "volver") {
                 <div class="center-align col s12">
                     <?= $mensaje ?>
                 </div>
-                <a href="sistema.php?r=layout" class="btn blue lighten-2">Regresar</a>
+                <a href="sistema.php?r=listar_vehiculos" class="btn blue lighten-2">Regresar</a>
             </div>
         <?php
         } elseif ($respuesta == false && $mensaje != "") {
@@ -96,7 +97,7 @@ if ($boton == "volver") {
         </div>
         <div class="input-field col s6 offset-s3">
             <label for="tipo_vehiculo"></label>
-            <select id="tipo_vehiculo" name="txtTipoVehiculo">
+            <select id="tipo_vehiculo" name="selTipoVehiculo">
                 <option value="" disabled selected></option>
                 <option value="<?=$objVehiculos->tipo_vehiculo?>">Citycar</option>
                 <option value="<?=$objVehiculos->tipo_vehiculo?>">Sedan</option>
@@ -114,6 +115,15 @@ if ($boton == "volver") {
         <div class="input-field col s6 offset-s3">
             <input id="precio" type="text" class="validate" name="txtPrecio" value="<?=$objVehiculos->precio?>">
             <label for="precio">Precio</label>
+        </div>
+        <div class="input-field col s6 offset-s3">
+            <label for="estado"></label>
+            <select id="estado" name="selEstado">
+            <option value="">Elija una opcion</option>
+                <option <?= $objVehiculos->estado ?>>1</option>
+                <option <?= $objVehiculos->estado ?>>2</option>
+            </select>
+            <label>Estado:   " 1 = Activo - 2 = Desactivado"</label>
         </div>
         <div class="input-field col s6 offset-s3">
             <input id="cant_pasajeros" type="text" class="validate" name="txtCantPasajeros" value="<?=$objVehiculos->cant_pasajeros?>">
