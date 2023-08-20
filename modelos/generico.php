@@ -35,7 +35,7 @@
 
 		}
 
-		protected function ejecutar($sql, $arraySQL = array()){
+		public function ejecutar($sql, $arraySQL = array()){
 
 			try{
 
