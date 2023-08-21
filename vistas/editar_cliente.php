@@ -102,11 +102,10 @@ if (isset($_POST['boton']) && $_POST['boton'] == "cancelar") {
         <div class="input-field col s6 offset-s3">
             <label for="tipo_documento"></label>
             <select id="tipo_documento" name="txtTipoDocumento">
-            <option value="">Elija una opcion</option>
                 <option <?= $objCliente->tipo_documento ?>>CI</option>
                 <option <?= $objCliente->tipo_documento ?>>Doc extranjero</option>                
             </select>
-            <label>Seleccione un tipo</label>
+            <label><h6>Seleccione un tipo</h6></label>
         </div>    
         <div class="input-field col s6 offset-s3">
             <input id="num_documento" type="text" class="validate" name="txtNumDocumento" value="<?= $objCliente->num_documento ?>">
@@ -115,11 +114,10 @@ if (isset($_POST['boton']) && $_POST['boton'] == "cancelar") {
         <div class="input-field col s6 offset-s3">
             <label for="estado"></label>
             <select id="estado" name="selEstado">
-            <option value="">Elija una opcion</option>
                 <option <?= $objCliente->estado ?>>1</option>
                 <option <?= $objCliente->estado ?>>2</option>
             </select>
-            <label>Estado:   " 1 = Activo - 2 = Desactivado"</label>
+            <label><h6>Estado:   " 1 = Activo - 2 = Desactivado"</h6></label>
         </div>        
         <div class="col s6 offset-s3">
             <input type="hidden" name="id" value="<?= $objCliente->id ?>">

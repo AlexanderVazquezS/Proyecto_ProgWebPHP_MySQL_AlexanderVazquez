@@ -25,6 +25,7 @@
 
 		public function constructor($arrayDatos = array()){
 
+			$this->id				= isset($arrayDatos['id'])?$arrayDatos['id']:"";
 			$this->apellido 		= $arrayDatos['apellido'];
 			$this->nombre			= $arrayDatos['nombre'];
 			$this->direccion 		= $arrayDatos['direccion'];
@@ -198,7 +199,7 @@
 			/*
 				Este metodo se encarga de retornar una lista de registro de la base de datos
 			*/
-			$estado = "1";	
+			$estado = isset($filtro['estado'])?$filtro['estado']:"1";	
 	
 			$sql = "SELECT id, CONCAT(apellido, ' ', nombre) as nombreCompleto FROM usuarios
 						WHERE estado = :estado 
@@ -209,6 +210,7 @@
 			return $lista;
 	
 		}
+		
 		public function totalRegistros(){
 			
 			$sql = "SELECT count(*) as total 
@@ -226,13 +228,13 @@
 	
 			return $retorno;
 		}		
-		public function mailCliente(){
+		public function mailCliente($filtro = array()){
 			/*
 				Este metodo se encarga de retornar una lista de registro de la base de datos
 			*/
-			$estado = "1";	
+			$estado = isset($filtro['estado'])?$filtro['estado']:"1";
 			
-			$sql = "SELECT id,email FROM usuarios
+			$sql = "SELECT id, email, num_documento FROM usuarios
 						WHERE estado = :estado 
 					ORDER BY email";
 			
@@ -290,3 +292,4 @@
 
 
 ?>
+

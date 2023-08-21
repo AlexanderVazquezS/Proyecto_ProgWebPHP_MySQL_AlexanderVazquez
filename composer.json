@@ -1,0 +1,17 @@
+{
+    "name": "usuario/proyecto_github",
+    "autoload": {
+        "psr-4": {
+            "Usuario\\ProyectoGithub\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "AlexanderVazquezS",
+            "email": "avazquez1987.2018@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.8"
+    }
+}

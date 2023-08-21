@@ -1,4 +1,12 @@
 <?php
+	if (isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] == "vendedor") {
+		header('Location:sistema.php?r=layout');
+	}
+?>
+
+
+
+<?php
 
 require_once("modelos/administradores.php");
 

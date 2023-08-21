@@ -26,12 +26,11 @@ if ($boton == "volver") {
     $arrayDatos['id_usuario'] = isset($_POST['selUsuario']) ? $_POST['selUsuario'] : "";
     $arrayDatos['id_vehiculo'] = isset($_POST['selVehiculo']) ? $_POST['selVehiculo'] : "";    
 
+    
     if (
         $arrayDatos['fecha_desde'] != "" && $arrayDatos['fecha_hasta'] != ""  
         
-    ) {
-
-        
+    ) {        
         $objAlquiler->constructor($arrayDatos);
         $respuesta = $objAlquiler->ingresar();
 

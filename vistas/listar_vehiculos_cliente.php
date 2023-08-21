@@ -32,12 +32,19 @@
 <table class="striped">
     <thead>
         <tr>
-            <th colspan="11">
+            <th colspan="8">
                 <a href="sistema_cliente.php" class="btn red right">
                     <i class="material-icons">cancel</i> Volver
-                </a>
-            
+                </a>            
             </th>
+            <th colspan="8">
+				<a href="sistema_cliente.php?r=ingresar_alquiler" class="btn blue lighten-2 right">
+					<i class="material-icons">add</i> Nuevo
+				</a>
+                <a href="sistema_cliente.php?r=mail" class="btn tooltipped" data-position="bottom" data-tooltip="Reseteo de contraseña">Mail</a>
+				</a>
+			</th>
+            
         </tr>
         <tr>                            
             <th>Modelo</th>             

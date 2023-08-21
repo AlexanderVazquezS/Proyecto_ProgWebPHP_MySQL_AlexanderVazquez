@@ -14,10 +14,7 @@ if ($boton == "volver") {
 
     //en caso de que el boton sea igual a ingresar lo que 
     //hacemos es ingresar el registro.
-    print_r($_FILES); 
 
-    //$respuesta = copy($_FILES['fileImg']['tmp_name'],"web/archivos/".$_FILES['fileImg']['name']);
-    //var_dump($respuesta);
     $img = $objVehiculos->subirImagen($_FILES['fileImg'], 600, 800);
 
     $arrayDatos = array();
@@ -26,8 +23,7 @@ if ($boton == "volver") {
     $arrayDatos['color'] = isset($_POST['txtColor']) ? $_POST['txtColor'] : "";    
     $arrayDatos['marca'] = isset($_POST['txtMarca']) ? $_POST['txtMarca'] : "";
     $arrayDatos['precio'] = isset($_POST['txtPrecio']) ? $_POST['txtPrecio'] : "";   
-    $arrayDatos['matricula'] = isset($_POST['txtMatricula']) ? $_POST['txtMatricula'] : "";
-    
+    $arrayDatos['matricula'] = isset($_POST['txtMatricula']) ? $_POST['txtMatricula'] : "";    
 
     if (
         $arrayDatos['modelo'] != "" && $arrayDatos['color'] != "" && $arrayDatos['marca'] != "" 
@@ -68,7 +64,7 @@ if ($boton == "volver") {
                 <div class="center-align col s12">
                     <?= $mensaje ?>
                 </div>
-                <a href="sistema.php?r=layout" class="btn blue lighten-2">Regresar</a>
+                <a href="sistema.php?r=listar_vehiculos" class="btn blue lighten-2">Regresar</a>
             </div>
         <?php
         } elseif ($respuesta == false && $mensaje != "") {

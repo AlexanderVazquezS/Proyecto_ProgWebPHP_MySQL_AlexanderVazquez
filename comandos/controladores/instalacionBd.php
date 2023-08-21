@@ -47,6 +47,7 @@
 								`precio` int DEFAULT NULL,
 								`cant_pasajeros` tinyint DEFAULT NULL,
 								`matricula` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
+								`imagen` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
 								`estado` tinyint(1) DEFAULT NULL,
 								PRIMARY KEY (`id`)
 							)";
@@ -80,12 +81,12 @@
 								(3,'ventas','vendedor','ventas@empresa.com','d6a12d4350e1ae37f6627c27619568b1',1);
 							";	
 							
-			$arrayTabla [] = "INSERT INTO `usuarios` VALUES (1,'Vazquez','Alexander','Atanasio Sierra 354','099887766','lalo@gmail.com.uy','21232f297a57a5a743894a0e4a801fc3','ci','12345678',1),
-								(2,'Melo','Juan','18 de julio 354','099123456','toto@gmail.com.uy','21232f297a57a5a743894a0e4a801fc3','ci','31231238',1),
-								(4,'Larregui','Ana','Ituzaingo 354','098123123','mila@gmail.com.uy','21232f297a57a5a743894a0e4a801fc3','ci','61231235',1),
-								(5,'Mateu','Ana','chieza 897','099318465','mateu@gmail.com.uy','21232f297a57a5a743894a0e4a801fc3','ci','41256329',1),
-								(6,'Larregui','Hector','18 de julio 354','097111222','hector@gmail.com.uy','21232f297a57a5a743894a0e4a801fc3','ci','29455644',1),
-								(7,'Vaz','Ana','Leandro Gomez 100','096258741','ana@gmail.com.uy','21232f297a57a5a743894a0e4a801fc3','ci','35214587',1);
+			$arrayTabla [] = "INSERT INTO `usuarios` VALUES (1,'Vazquez','Alexander','Atanasio Sierra 354','099887766','lalo@gmail.com.uy','2a0315307419b65dbc75f4341d5f795f','ci','12345678',1),
+								(2,'Melo','Juan','18 de julio 354','099123456','toto@gmail.com.uy','2a0315307419b65dbc75f4341d5f795f','ci','31231238',1),
+								(4,'Larregui','Ana','Ituzaingo 354','098123123','mila@gmail.com.uy','2a0315307419b65dbc75f4341d5f795f','ci','61231235',1),
+								(5,'Mateu','Ana','chieza 897','099318465','mateu@gmail.com.uy','2a0315307419b65dbc75f4341d5f795f','ci','41256329',1),
+								(6,'Larregui','Hector','18 de julio 354','097111222','hector@gmail.com.uy','2a0315307419b65dbc75f4341d5f795f','ci','29455644',1),
+								(7,'Vaz','Ana','Leandro Gomez 100','096258741','ana@gmail.com.uy','2a0315307419b65dbc75f4341d5f795f','ci','35214587',1);
 							";	
 			
 			$arrayTabla [] = "INSERT INTO `vehiculos` VALUES (1,'Creta','Gris','camioneta','HYUNDAI',5390,5,'RBA123',1),

@@ -38,7 +38,7 @@
 		}
 
 		public function cargar($id){
-
+			
 			$sql = "SELECT * FROM vehiculos WHERE id = :id ";
 			$arraySQL = array("id" => $id);
 		
@@ -98,7 +98,7 @@
 										        
 				);
 	
-				$respuesta = $this->ejecutar($sql, $arrayDatos);
+			$respuesta = $this->ejecutar($sql, $arrayDatos);
 	
 			return $respuesta;
 		}
@@ -115,12 +115,12 @@
                             precio      	 = :precio,
 							estado			 = :estado,
                             cant_pasajeros	 = :cant_pasajeros,    
-							matricula		 = :matricula";																				                 
-						
-					if($this->imagen){
-						$sql .= " ,imagen = '$this->imagen' ";
-					}
-					$sql .=	" WHERE id = :id; ";
+							matricula		 = :matricula";
+
+		if ($this->imagen) {
+			$sql .= " ,imagen = '$this->imagen' ";
+		}
+		$sql .=	" WHERE id = :id; ";
 					
 			$arrayDatos = array(
 				"id" 			 => $this->id,

@@ -67,8 +67,8 @@
 	<footer class="page-footer teal lighten-2">
 		<div class="footer-copyright">
 			<div class="container black-text">
-				© 2014 Copyright Text
-				<a class="black-text right" href="#!">More Links</a>
+				© 2023 Copyright Text
+				<a class="black-text right" href="#!">by Alexander Vazquez</a>
 			</div>
 		</div>
 	</footer>

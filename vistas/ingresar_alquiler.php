@@ -13,7 +13,7 @@ $objAlquiler = new alquileres();
 
 if ($boton == "volver") {
     //aca lo que hacemos es redireccionar a la pantalla inicial
-    header('Location: sistema_cliente.php?r=listar_vehiculos_cliente');
+    header('Location: sistema_alquiler.php?r=listar_vehiculos_cliente');
 } elseif ($boton == "ingresar") {
 
     //en caso de que el boton sea igual a ingresar lo que 
@@ -26,12 +26,11 @@ if ($boton == "volver") {
     $arrayDatos['id_usuario'] = isset($_POST['selUsuario']) ? $_POST['selUsuario'] : "";
     $arrayDatos['id_vehiculo'] = isset($_POST['selVehiculo']) ? $_POST['selVehiculo'] : "";    
 
+    
     if (
         $arrayDatos['fecha_desde'] != "" && $arrayDatos['fecha_hasta'] != ""  
         
-    ) {
-
-        
+    ) {        
         $objAlquiler->constructor($arrayDatos);
         $respuesta = $objAlquiler->ingresar();
 

@@ -55,6 +55,7 @@ class alquileres extends generico{
         /*
             En este metodo se encarga de ingresar los regisros
         */
+        
             $sql = "INSERT alquileres SET
                     fecha_desde    = :fecha_desde,
                     fecha_hasta	   = :fecha_hasta,   
@@ -71,8 +72,8 @@ class alquileres extends generico{
                 "id_usuario"	     => $this->id_usuario,
                 "id_vehiculo"        => $this->id_vehiculo                               
             );
-            print_r($arrayDatos);
-            $respuesta = $this->ejecutar($sql, $arrayDatos);
+
+        $respuesta = $this->ejecutar($sql, $arrayDatos);
 
         return $respuesta;
     }
@@ -107,9 +108,9 @@ class alquileres extends generico{
                     v.cant_pasajeros,
                     v.imagen,
                     a.id,
-                    a.fecha_desde,
-                    a.fecha_hasta,                  
-                    a.id_usuario,
+                    a.fecha_desde as fecha_desde,
+                    a.fecha_hasta as fecha_hasta,                  
+                    a.id_usuario as idVehiculo,
                     a.id_vehiculo,
                     v.modelo                    
                     FROM alquileres a

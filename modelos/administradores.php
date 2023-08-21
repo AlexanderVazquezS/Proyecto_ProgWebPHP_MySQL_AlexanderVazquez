@@ -81,22 +81,22 @@
 				En este metodo se encarga de ingresar los regisros
 			*/
 				$sql = "INSERT administradores SET
-						nombre = :nombre,
-						tipo_usuario = :tipo_usuario,
-						email = :mail,
-						clave = :clave,
-						estado = 1;
+						nombre 		  = :nombre,
+						tipo_usuario  = :tipo_usuario,
+						email         = :mail,
+						clave		  = :clave,
+						estado		  = 1;
 						
 				";
 	
 				$arrayDatos = array(
-					"nombre"	  => $this->nombre,
+					"nombre"	   => $this->nombre,
 					"tipo_usuario" => $this->tipo_usuario,
-					"mail" 		  => $this->mail,
-					"clave"		  => md5($this->clave)
+					"mail" 		   => $this->mail,
+					"clave"		   => md5($this->clave)
 				);
 	
-				$respuesta = $this->ejecutar($sql, $arrayDatos);
+			$respuesta = $this->ejecutar($sql, $arrayDatos);
 	
 			return $respuesta;
 		}

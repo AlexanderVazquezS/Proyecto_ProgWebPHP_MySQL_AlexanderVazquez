@@ -77,7 +77,7 @@ if (isset($_POST['boton']) && $_POST['boton'] == "cancelar") {
 			<div class=" valign-wrapper blue lighten-4 col s6 offset-s3" style="height: 100px; font-size:25px">
 				<div class="center-align col s12">
 					<?= $mensaje ?>
-					<a href="sistema_cliente.php?r=pagina_principal_cliente" class="btn blue lighten-2">Regresar</a>
+					<a href="sistema_cliente.php" class="btn blue lighten-2">Regresar</a>
 				</div>
 			</div>
 		<?php
@@ -115,12 +115,11 @@ if (isset($_POST['boton']) && $_POST['boton'] == "cancelar") {
 		</div>		
 		<div class="input-field col s6 offset-s3">
             <label for="estado"></label>
-            <select id="estado" name="selEstado">
-            <option value="">Elija una opcion</option>
+            <select id="estado" name="selEstado">            
                 <option <?= $objCliente->estado ?>>1</option>
                 <option <?= $objCliente->estado ?>>2</option>
             </select>
-            <label>Estado:   " 1 = Activo - 2 = Desactivado"</label>
+            <label><h6>Estado:   " 1 = Activo - 2 = Desactivado"</h6></label>
         </div>
 		<div class=" col s6 offset-s3">
 					<button class="btn waves-effect waves-light teal accent-3" type="submit" name="boton" value="guardar">Guardar
@@ -144,7 +143,7 @@ if (isset($_POST['boton']) && $_POST['boton'] == "cancelar") {
 			<div class=" valign-wrapper blue lighten-4 col s6 offset-s3" style="height: 100px; font-size:25px">
 				<div class="center-align col s12">
 					<?= $mensaje ?>
-					<a href="sistema_cliente.php?r=layout_cliente" class="btn blue lighten-2">Regresar</a>
+					<a href="sistema_cliente.php" class="btn blue lighten-2">Regresar</a>
 				</div>
 			</div>
 		<?php

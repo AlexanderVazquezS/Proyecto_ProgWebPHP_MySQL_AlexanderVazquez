@@ -3,3 +3,4 @@ configuracion/db.php
 
 #ignora la carpeta archivos 
 web/archivos/
+/vendor/

@@ -68,9 +68,9 @@
 
 <body>
 	<nav>
-		<div class="nav-wrapper  teal lighten-2">
+		<div class="nav-wrapper  light-blue lighten-3">
 			<a href="#!" class="brand-logo black-text text-darken-4">
-            Login de usuarios
+            Login de Administradores
 			</a>
 		</div>
 	</nav>
@@ -101,7 +101,7 @@
 					<label for="clave">Clave</label>
 				</div>
 				<div class="col s6 offset-s3">
-					<button class="btn waves-effect waves-light teal lighten-2" type="submit" name="boton" value="ingresar">Ingresar
+					<button class="btn waves-effect waves-light light-blue lighten-1" type="submit" name="boton" value="ingresar">Ingresar
 						<i class="material-icons right">send</i>			
 					</button>
 				</div>	
@@ -110,7 +110,7 @@
 		</div>
 	</main>
 
-	<footer class="page-footer teal lighten-2">
+	<footer class="page-footer light-blue lighten-3">
 		<div class="footer-copyright">
 			<div class="container black-text">
 				© 2014 Copyright Text

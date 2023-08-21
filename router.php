@@ -91,9 +91,13 @@
 
 			include("vistas/borrar_alquiler_adm.php");	
 			
+		}elseif($formulario == "mail"){
+
+			include("vistas/mail.php");	
+			
 		}else{
 
-			echo("<h1>404 Pagina no existe</h1>");
+			echo("<h1>Pagina en construccion</h1>");
 
 		}
 
